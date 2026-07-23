@@ -1,0 +1,46 @@
+{
+  "guid": "5cd7a0a5-c123-46d9-99ee-6f9060cdd726",
+  "importer": "TextureImporter",
+  "importerVersion": 1,
+  "settings": {
+    "generateMipmaps": true,
+    "sRGB": true,
+    "minFilter": 0,
+    "magFilter": 0,
+    "wrapMode": 0,
+    "sprite": {
+      "$id": 1,
+      "Mode": 0,
+      "PixelsPerUnit": 100F,
+      "GenerateTightMesh": false,
+      "TightMeshDetail": 1.5F,
+      "TightMeshAlphaThreshold": 1B,
+      "SecondaryTextures": {
+
+      },
+      "SlicingTool": 1,
+      "GeneratedPivot": 0,
+      "GridCellSize": {
+        "X": 16,
+        "Y": 16
+      },
+      "GridCellCount": {
+        "X": 4,
+        "Y": 4
+      },
+      "GridOffset": {
+        "X": 0,
+        "Y": 0
+      },
+      "GridPadding": {
+        "X": 0,
+        "Y": 0
+      },
+      "KeepEmptyRects": false,
+      "IsoIsAlternate": false,
+      "Slices": [
+
+      ]
+    }
+  }
+}
