@@ -36,11 +36,13 @@ public class OptimizedChunk : MonoBehaviour
 
             // var gradient = y / ChunkSize;
 
-            var noise01 = (noise.GetNoise(offset.X, offset.Y, offset.Z) + 1) * 0.5; 
+            // var noise01 = (noise.GetNoise(offset.X, offset.Y, offset.Z) + 1) * 0.5; 
+            // return noise01 < 0.5f;
 
-            // var noiseValue = noise01 * gradient;
+            var noise01 = (noise.GetNoise(offset.X, offset.Z) + 1) * 0.5; 
 
-            return noise01 < 0.5f;
+            var terrainHeight = noise01 * ChunkSize;
+            return y > terrainHeight;
         }
 
         bool IsAir(int x, int y, int z)
