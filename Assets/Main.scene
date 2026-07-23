@@ -238,8 +238,8 @@
         "AssetPath": "",
         "Identifier": "b8dc703a-2c8c-4f2a-9767-f11661d5efd6",
         "Static": 0B,
-        "Enabled": 1B,
-        "EnabledInHierarchy": 1B,
+        "Enabled": 0B,
+        "EnabledInHierarchy": 0B,
         "TagIndex": 0,
         "LayerIndex": 0,
         "HideFlags": 0,
@@ -272,7 +272,7 @@
             },
             "_identifier": "005dddee-b57b-47d7-9021-e85b6ba300ee",
             "_enabled": true,
-            "_enabledInHierarchy": true,
+            "_enabledInHierarchy": false,
             "HideFlags": 0,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
@@ -326,11 +326,65 @@
           },
           {
             "$id": 14
+          },
+          {
+            "$id": 19,
+            "Name": "OptimizedChunk",
+            "AssetPath": "",
+            "Identifier": "fc3fadba-dd79-49de-b83d-645df22acd97",
+            "Static": 0B,
+            "Enabled": 0B,
+            "EnabledInHierarchy": 0B,
+            "TagIndex": 0,
+            "LayerIndex": 0,
+            "HideFlags": 0,
+            "Transform": {
+              "$id": 20,
+              "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "_localPosition": {
+                "X": 0F,
+                "Y": 0F,
+                "Z": 0F
+              },
+              "_localScale": {
+                "X": 1F,
+                "Y": 1F,
+                "Z": 1F
+              },
+              "_localRotation": {
+                "X": 0F,
+                "Y": 0F,
+                "Z": 0F,
+                "W": 1F
+              }
+            },
+            "Components": [
+              {
+                "$id": 21,
+                "$type": "OptimizedChunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "material": {
+                  "AssetID": "00000000-0000-0000-0000-000000000000"
+                },
+                "_identifier": "0e43fe50-6a20-4ac7-b8ea-ea281b516140",
+                "_enabled": true,
+                "_enabledInHierarchy": false,
+                "HideFlags": 0,
+                "AssetPath": "",
+                "AssetID": "00000000-0000-0000-0000-000000000000",
+                "Name": "NewOptimizedChunk"
+              }
+            ],
+            "Children": [
+
+            ]
           }
         ]
       },
       {
-        "$id": 19,
+        "$id": 19
+      },
+      {
+        "$id": 22,
         "Name": "Camera",
         "AssetPath": "",
         "Identifier": "586f19e8-4a41-40f2-9f4c-92dfe0ddb7fe",
@@ -341,7 +395,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 20,
+          "$id": 23,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -362,11 +416,11 @@
         },
         "Components": [
           {
-            "$id": 21,
+            "$id": 24,
             "$type": "Prowl.Runtime.Camera, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Effects": [
               {
-                "$id": 22,
+                "$id": 25,
                 "$type": "Prowl.Runtime.Rendering.TonemapperEffect, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Type": 3,
                 "Contrast": 1.1F,
@@ -406,6 +460,61 @@
         "Children": [
 
         ]
+      },
+      {
+        "$id": 26,
+        "Name": "World",
+        "AssetPath": "",
+        "Identifier": "7f58b381-3c21-43a6-8c10-8e3881e87cb9",
+        "Static": 0B,
+        "Enabled": 1B,
+        "EnabledInHierarchy": 1B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 27,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F,
+            "W": 1F
+          }
+        },
+        "Components": [
+          {
+            "$id": 28,
+            "$type": "World, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "player": {
+              "$id": 23
+            },
+            "material": {
+              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
+            },
+            "RenderDistance": 4,
+            "_identifier": "80a3908d-419c-4566-9d59-757fcac2db05",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewWorld"
+          }
+        ],
+        "Children": [
+
+        ]
       }
     ]
   },
@@ -417,7 +526,9 @@
       "17c44d7c-567c-4be9-9134-7c4459fb6492",
       "b8dc703a-2c8c-4f2a-9767-f11661d5efd6",
       "e49305a3-13ba-4759-9aa5-f056d1807ad6",
-      "586f19e8-4a41-40f2-9f4c-92dfe0ddb7fe"
+      "fc3fadba-dd79-49de-b83d-645df22acd97",
+      "586f19e8-4a41-40f2-9f4c-92dfe0ddb7fe",
+      "7f58b381-3c21-43a6-8c10-8e3881e87cb9"
     ]
   },
   "_compIdentifiers": {
@@ -427,7 +538,9 @@
       "2b09e5d8-848f-4ab0-9a4e-8d05bf114c0a",
       "39f6863e-d29a-48f9-abc5-b56f1bab3d40",
       "005dddee-b57b-47d7-9021-e85b6ba300ee",
-      "9742575a-cc36-4b3e-8f18-7236490ea61a"
+      "0e43fe50-6a20-4ac7-b8ea-ea281b516140",
+      "9742575a-cc36-4b3e-8f18-7236490ea61a",
+      "80a3908d-419c-4566-9d59-757fcac2db05"
     ]
   },
   "_compIdOffsets": {
@@ -439,7 +552,9 @@
       4,
       5,
       5,
-      6
+      6,
+      7,
+      8
     ]
   },
   "Fog": {
@@ -502,7 +617,7 @@
     }
   },
   "BakedLighting": {
-    "$id": 23,
+    "$id": 29,
     "Lightmaps": [
 
     ],
@@ -528,7 +643,7 @@
     }
   },
   "LightmapBake": {
-    "$id": 24,
+    "$id": 30,
     "AtlasSize": 1024,
     "TexelsPerUnit": 20F,
     "DilatePixels": 2,

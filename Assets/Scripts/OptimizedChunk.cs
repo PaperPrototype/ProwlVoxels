@@ -2,30 +2,87 @@ using System.Collections.Generic;
 using Prowl.Runtime;
 using Prowl.Runtime.Resources;
 using Prowl.Vector;
-using Silk.NET.Vulkan;
 
 public class OptimizedChunk : MonoBehaviour
 {
     public AssetRef<Material> material;
 
-    private int ChunkSize = 16;
+    private static int ChunkSize = 16;
 
-    private MeshRenderer _meshRenderer;
+    private MeshRenderer meshRenderer;
+
+    private Float3 position;
+
+    private byte[,,] voxels = new byte[ChunkSize, ChunkSize, ChunkSize];
+
+    public void Initialize(World world, Float3 _position, AssetRef<Material> _material)
+    {
+        material = _material;
+        position = _position;
+
+        GameObject.Transform.Parent = world.Transform;
+        GameObject.Transform.Position = position;
+    }
 
     public override void Start()
     {
         var noise = new FastNoiseLite();
         noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
 
-        bool IsAir(float x, float y, float z, int face)
+        bool IsNoiseAir(int x, int y, int z)
         {
             float frequency = 1.1f;
-            var offset = new Float3(x * frequency, y * frequency, z * frequency) + VoxelTables.Offsets[face];
-            return noise.GetNoise(offset.X, offset.Y, offset.Z) > 0;
+            var offset = (new Float3(x, y, z) + position) * frequency;
+
+            // var gradient = y / ChunkSize;
+
+            var noise01 = (noise.GetNoise(offset.X, offset.Y, offset.Z) + 1) * 0.5; 
+
+            // var noiseValue = noise01 * gradient;
+
+            return noise01 < 0.5f;
         }
 
-        _meshRenderer = AddComponent<MeshRenderer>();
-        _meshRenderer.Material = material;
+        bool IsAir(int x, int y, int z)
+        {
+            if (x < ChunkSize && x >= 0 &&
+                y < ChunkSize && y >= 0 &&
+                z < ChunkSize && z >= 0)
+            {
+                return voxels[x, y, z] == 0;
+            }
+            else
+            {
+                return IsNoiseAir(x, y, z);
+            }
+        }
+
+        bool IsNeighborAir(float x, float y, float z, int face)
+        {
+            var pos = new Float3(x, y, z) + VoxelTables.Offsets[face];
+            return IsAir((int)pos.X, (int)pos.Y, (int)pos.Z);
+        }
+
+        for (int x = 0; x < ChunkSize; x++)
+        {
+            for (int y = 0; y < ChunkSize; y++)
+            {
+                for (int z = 0; z < ChunkSize; z++)
+                {
+                    if (IsNoiseAir(x, y, z))
+                    {
+                        voxels[x, y, z] = 0; // Air
+                    }
+                    else
+                    {
+                        voxels[x, y, z] = 1; // Dirt
+                    }
+                }
+            }
+        }
+
+        meshRenderer = AddComponent<MeshRenderer>();
+        meshRenderer.Material = material;
 
         var mesh = new Mesh
         {
@@ -37,38 +94,39 @@ public class OptimizedChunk : MonoBehaviour
         var uv = new List<Float2>();
 
         for (int x = 0; x < ChunkSize; x++)
+        for (int y = 0; y < ChunkSize; y++)
+        for (int z = 0; z < ChunkSize; z++)
         {
-            for (int y = 0; y < ChunkSize; y++)
+            var offset = new Float3(x, y, z);
+
+            if (!IsAir(x, y, z))
             {
-                for (int z = 0; z < ChunkSize; z++)
+                for (int face = 0; face < 6; face++)
                 {
-                    var offset = new Float3(x, y, z);
-                    for (int face = 0; face < 6; face++)
+                    if (IsNeighborAir(x, y, z, face))
                     {
-                        if (IsAir(x, y, z, face))
-                        {
-                            indices.Add((uint)verts.Count + 0);
-                            indices.Add((uint)verts.Count + 1);
-                            indices.Add((uint)verts.Count + 2);
-                            indices.Add((uint)verts.Count + 2);
-                            indices.Add((uint)verts.Count + 1);
-                            indices.Add((uint)verts.Count + 3);
+                        indices.Add((uint)verts.Count + 0);
+                        indices.Add((uint)verts.Count + 1);
+                        indices.Add((uint)verts.Count + 2);
+                        indices.Add((uint)verts.Count + 2);
+                        indices.Add((uint)verts.Count + 1);
+                        indices.Add((uint)verts.Count + 3);
 
-                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 0]] + offset);
-                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 1]] + offset);
-                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 2]] + offset);
-                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 3]] + offset);
+                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 0]] + offset);
+                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 1]] + offset);
+                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 2]] + offset);
+                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 3]] + offset);
 
-                            uv.Add(new Float2(0, 0));
-                            uv.Add(new Float2(0, 1));
-                            uv.Add(new Float2(1, 0));
-                            uv.Add(new Float2(1, 1));
-                        }
+                        uv.Add(new Float2(0, 0));
+                        uv.Add(new Float2(0, 1));
+                        uv.Add(new Float2(1, 0));
+                        uv.Add(new Float2(1, 1));
                     }
                 }
             }
         }
 
+        if (verts.Count == 0) return;
 
         mesh.Vertices = verts.ToArray();
         mesh.Indices = indices.ToArray();
@@ -78,7 +136,6 @@ public class OptimizedChunk : MonoBehaviour
         mesh.RecalculateNormals();
         mesh.RecalculateTangents();
 
-        _meshRenderer.Mesh = mesh;
+        meshRenderer.Mesh = mesh;
     }
-
 }
