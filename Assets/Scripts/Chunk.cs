@@ -41,10 +41,10 @@ public class Chunk : MonoBehaviour
                         indices.Add((uint)verts.Count + 1);
                         indices.Add((uint)verts.Count + 3);
 
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVerticesIndex[face, 0]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVerticesIndex[face, 1]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVerticesIndex[face, 2]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVerticesIndex[face, 3]] + offset);
+                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 0]] + offset);
+                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 1]] + offset);
+                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 2]] + offset);
+                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 3]] + offset);
 
                         uv.Add(new Float2(0, 0));
                         uv.Add(new Float2(0, 1));

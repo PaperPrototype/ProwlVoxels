@@ -17,7 +17,7 @@ public static class VoxelTables
     };
 
     // vertices to build a quad for each side of a voxel
-    public static readonly int[,] QuadVerticesIndex = new int[6, 4]
+    public static readonly int[,] QuadVertices = new int[6, 4]
     {
         // quad order
         // right, left, up, down, front, back
@@ -33,5 +33,20 @@ public static class VoxelTables
 
         {5, 6, 4, 7}, // front quad
         {0, 3, 1, 2}, // back quad
+    };
+
+    // vertices to build a quad for each side of a voxel
+    public static readonly Float3[] Offsets = new Float3[6]
+    {
+        // right, left, up, down, front, back
+
+        Float3.UnitX,   // right quad
+        -Float3.UnitX, // left quad
+
+        Float3.UnitY,   // up quad
+        -Float3.UnitY, // down quad
+
+        Float3.UnitZ,   // front quad
+        -Float3.UnitZ, // back quad
     };
 }
