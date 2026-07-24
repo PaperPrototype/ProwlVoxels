@@ -22,10 +22,10 @@ public class CameraController : MonoBehaviour
 
     public override void Update()
     {
-        // if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
-        // {
-        //     Input.LockCursor();
-        // }
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        {
+            Input.LockCursor();
+        }
 
         if (!Input.CursorLocked) return;
         // if (!Input.GetMouseButton(0)) return;

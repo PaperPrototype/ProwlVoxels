@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Prowl.Runtime;
 using Prowl.Runtime.Resources;
 using Prowl.Vector;
@@ -33,12 +34,15 @@ public class OptimizedChunk : MonoBehaviour
 
     public void EnablePhysics(bool enabled)
     {
-        if (meshCollider is null && enabled)
+        if (enabled)
         {
-            meshCollider = AddComponent<MeshCollider>();
-            meshCollider.Mesh = mesh;
+            if (meshCollider is null)
+            {
+                meshCollider = AddComponent<MeshCollider>();
+                meshCollider.Mesh = mesh;
+            }
         }
-        else
+        else if (meshCollider is not null)
         {
             RemoveComponent<MeshCollider>(meshCollider);
             meshCollider = null;
@@ -50,122 +54,127 @@ public class OptimizedChunk : MonoBehaviour
         Generate();
     }
 
-    public void Generate()
+    public async Task Generate()
     {
         if (isGenerated) return;
 
-        var noise = new FastNoiseLite();
-        noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-
-        byte[,,] voxels = new byte[ChunkSize, ChunkSize, ChunkSize];
-
-        bool IsNoiseAir(int x, int y, int z)
+        await Task.Run(() =>
         {
-            float frequency = 1.1f;
-            var offset = (new Float3(x, y, z) + position) * frequency;
+            var noise = new FastNoiseLite();
+            noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
 
-            // var gradient = y / ChunkSize;
+            byte[,,] voxels = new byte[ChunkSize, ChunkSize, ChunkSize];
 
-            // var noise01 = (noise.GetNoise(offset.X, offset.Y, offset.Z) + 1) * 0.5; 
-            // return noise01 < 0.5f;
-
-            var noise01 = (noise.GetNoise(offset.X, offset.Z) + 1) * 0.5; 
-
-            var terrainHeight = noise01 * ChunkSize;
-            return y > terrainHeight;
-        }
-
-        bool IsAir(int x, int y, int z)
-        {
-            if (x < ChunkSize && x >= 0 &&
-                y < ChunkSize && y >= 0 &&
-                z < ChunkSize && z >= 0)
+            bool IsNoiseAir(int x, int y, int z)
             {
-                return voxels[x, y, z] == 0;
+                float frequency = 1.1f;
+                var offset = (new Float3(x, y, z) + position) * frequency;
+
+                // var gradient = y / ChunkSize;
+
+                // var noise01 = (noise.GetNoise(offset.X, offset.Y, offset.Z) + 1) * 0.5; 
+                // return noise01 < 0.5f;
+
+                var noise01 = (noise.GetNoise(offset.X, offset.Z) + 1) * 0.5; 
+
+                var terrainHeight = noise01 * ChunkSize;
+                return y > terrainHeight;
             }
-            else
+
+            bool IsAir(int x, int y, int z)
             {
-                // return IsNoiseAir(x, y, z);
-                return true;
+                if (x < ChunkSize && x >= 0 &&
+                    y < ChunkSize && y >= 0 &&
+                    z < ChunkSize && z >= 0)
+                {
+                    return voxels[x, y, z] == 0;
+                }
+                else
+                {
+                    // return IsNoiseAir(x, y, z);
+                    return true;
+                }
             }
-        }
 
-        bool IsNeighborAir(float x, float y, float z, int face)
-        {
-            var pos = new Float3(x, y, z) + VoxelTables.Offsets[face];
-            return IsAir((int)pos.X, (int)pos.Y, (int)pos.Z);
-        }
+            bool IsNeighborAir(float x, float y, float z, int face)
+            {
+                var pos = new Float3(x, y, z) + VoxelTables.Offsets[face];
+                return IsAir((int)pos.X, (int)pos.Y, (int)pos.Z);
+            }
 
-        for (int x = 0; x < ChunkSize; x++)
-        {
+            for (int x = 0; x < ChunkSize; x++)
+            {
+                for (int y = 0; y < ChunkSize; y++)
+                {
+                    for (int z = 0; z < ChunkSize; z++)
+                    {
+                        if (IsNoiseAir(x, y, z))
+                        {
+                            voxels[x, y, z] = 0; // Air
+                        }
+                        else
+                        {
+                            voxels[x, y, z] = 1; // Dirt
+                        }
+                    }
+                }
+            }
+
+            meshRenderer = AddComponent<MeshRenderer>();
+            meshRenderer.Material = material;
+
+            var verts = new List<Float3>();
+            var indices = new List<uint>();
+            var uv = new List<Float2>();
+
+            for (int x = 0; x < ChunkSize; x++)
             for (int y = 0; y < ChunkSize; y++)
+            for (int z = 0; z < ChunkSize; z++)
             {
-                for (int z = 0; z < ChunkSize; z++)
+                var offset = new Float3(x, y, z);
+
+                if (!IsAir(x, y, z))
                 {
-                    if (IsNoiseAir(x, y, z))
+                    for (int face = 0; face < 6; face++)
                     {
-                        voxels[x, y, z] = 0; // Air
-                    }
-                    else
-                    {
-                        voxels[x, y, z] = 1; // Dirt
+                        if (IsNeighborAir(x, y, z, face))
+                        {
+                            indices.Add((uint)verts.Count + 0);
+                            indices.Add((uint)verts.Count + 1);
+                            indices.Add((uint)verts.Count + 2);
+                            indices.Add((uint)verts.Count + 2);
+                            indices.Add((uint)verts.Count + 1);
+                            indices.Add((uint)verts.Count + 3);
+
+                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 0]] + offset);
+                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 1]] + offset);
+                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 2]] + offset);
+                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 3]] + offset);
+
+                            uv.Add(new Float2(0, 0));
+                            uv.Add(new Float2(0, 1));
+                            uv.Add(new Float2(1, 0));
+                            uv.Add(new Float2(1, 1));
+                        }
                     }
                 }
             }
-        }
 
-        meshRenderer = AddComponent<MeshRenderer>();
-        meshRenderer.Material = material;
+            if (verts.Count == 0) return;
 
-        var verts = new List<Float3>();
-        var indices = new List<uint>();
-        var uv = new List<Float2>();
+            mesh.Vertices = verts.ToArray();
+            mesh.Indices = indices.ToArray();
+            mesh.UV = uv.ToArray();
 
-        for (int x = 0; x < ChunkSize; x++)
-        for (int y = 0; y < ChunkSize; y++)
-        for (int z = 0; z < ChunkSize; z++)
-        {
-            var offset = new Float3(x, y, z);
+            mesh.RecalculateBounds();
+            mesh.RecalculateNormals();
+            mesh.RecalculateTangents();
 
-            if (!IsAir(x, y, z))
-            {
-                for (int face = 0; face < 6; face++)
-                {
-                    if (IsNeighborAir(x, y, z, face))
-                    {
-                        indices.Add((uint)verts.Count + 0);
-                        indices.Add((uint)verts.Count + 1);
-                        indices.Add((uint)verts.Count + 2);
-                        indices.Add((uint)verts.Count + 2);
-                        indices.Add((uint)verts.Count + 1);
-                        indices.Add((uint)verts.Count + 3);
+            PhysicsWorld.BakeMesh(mesh);
 
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 0]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 1]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 2]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 3]] + offset);
-
-                        uv.Add(new Float2(0, 0));
-                        uv.Add(new Float2(0, 1));
-                        uv.Add(new Float2(1, 0));
-                        uv.Add(new Float2(1, 1));
-                    }
-                }
-            }
-        }
-
-        if (verts.Count == 0) return;
-
-        mesh.Vertices = verts.ToArray();
-        mesh.Indices = indices.ToArray();
-        mesh.UV = uv.ToArray();
-
-        mesh.RecalculateBounds();
-        mesh.RecalculateNormals();
-        mesh.RecalculateTangents();
-
-        meshRenderer.Mesh = mesh;
-
+            meshRenderer.Mesh = mesh;
+        });
+        
         isGenerated = true;
     }
 }
