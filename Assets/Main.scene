@@ -5,60 +5,9 @@
     "array": [
       {
         "$id": 2,
-        "Name": "Quad",
-        "AssetPath": "",
-        "Identifier": "8ca1f5b3-5cff-44d3-bb78-416d4ee28a98",
-        "Static": 0B,
-        "Enabled": 0B,
-        "EnabledInHierarchy": 0B,
-        "TagIndex": 0,
-        "LayerIndex": 0,
-        "HideFlags": 0,
-        "Transform": {
-          "$id": 3,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
-        },
-        "Components": [
-          {
-            "$id": 4,
-            "$type": "Quad, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "material": {
-              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
-            },
-            "_identifier": "9bfcbc68-072c-46b5-a915-613e009a4754",
-            "_enabled": true,
-            "_enabledInHierarchy": false,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewQuad"
-          }
-        ],
-        "Children": [
-
-        ]
-      },
-      {
-        "$id": 5,
         "Name": "Directional Light",
         "AssetPath": "",
-        "Identifier": "80a175d4-d00c-4978-80d2-f4bedc00f7ae",
+        "Identifier": "8660f5fa-bdbe-4c37-9cd5-03e06a9ced2d",
         "Static": 0B,
         "Enabled": 1B,
         "EnabledInHierarchy": 1B,
@@ -66,7 +15,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 6,
+          "$id": 3,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -87,7 +36,7 @@
         },
         "Components": [
           {
-            "$id": 7,
+            "$id": 4,
             "$type": "Prowl.Runtime.DirectionalLight, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "ShadowResolution": 2048,
             "Cascades": 2,
@@ -105,7 +54,7 @@
             "CastShadows": true,
             "ShadowQuality": 1,
             "BakeMode": 0,
-            "_identifier": "adeea2b6-3d34-4c52-b9e2-9c787b3835c0",
+            "_identifier": "098c9e62-fcac-4d75-9b5b-29835c89c661",
             "_enabled": true,
             "_enabledInHierarchy": true,
             "HideFlags": 0,
@@ -119,10 +68,10 @@
         ]
       },
       {
-        "$id": 8,
-        "Name": "Plane",
+        "$id": 5,
+        "Name": "World",
         "AssetPath": "",
-        "Identifier": "1da74cb2-aa4a-463c-b266-fa5edf4aa71b",
+        "Identifier": "deb6b068-ca5f-4987-bfa3-6df8f5740d4b",
         "Static": 0B,
         "Enabled": 1B,
         "EnabledInHierarchy": 1B,
@@ -130,7 +79,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 9,
+          "$id": 6,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -151,196 +100,10 @@
         },
         "Components": [
           {
-            "$id": 10,
-            "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Mesh": {
-              "AssetID": "38151a92-9ae6-525d-b9cd-13fbcd700c8a"
-            },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
-            "LightmapIndex": -1,
-            "LightmapScaleOffset": {
-              "X": 1F,
-              "Y": 1F,
-              "Z": 0F,
-              "W": 0F
-            },
-            "_identifier": "2b09e5d8-848f-4ab0-9a4e-8d05bf114c0a",
-            "_enabled": true,
-            "_enabledInHierarchy": true,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewMeshRenderer"
-          }
-        ],
-        "Children": [
-
-        ]
-      },
-      {
-        "$id": 11,
-        "Name": "Cube",
-        "AssetPath": "",
-        "Identifier": "17c44d7c-567c-4be9-9134-7c4459fb6492",
-        "Static": 0B,
-        "Enabled": 0B,
-        "EnabledInHierarchy": 0B,
-        "TagIndex": 0,
-        "LayerIndex": 0,
-        "HideFlags": 0,
-        "Transform": {
-          "$id": 12,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
-        },
-        "Components": [
-          {
-            "$id": 13,
-            "$type": "Cube, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "material": {
-              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
-            },
-            "_identifier": "39f6863e-d29a-48f9-abc5-b56f1bab3d40",
-            "_enabled": true,
-            "_enabledInHierarchy": false,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewCube"
-          }
-        ],
-        "Children": [
-
-        ]
-      },
-      {
-        "$id": 14,
-        "Name": "Chunk",
-        "AssetPath": "",
-        "Identifier": "b8dc703a-2c8c-4f2a-9767-f11661d5efd6",
-        "Static": 0B,
-        "Enabled": 0B,
-        "EnabledInHierarchy": 0B,
-        "TagIndex": 0,
-        "LayerIndex": 0,
-        "HideFlags": 0,
-        "Transform": {
-          "$id": 15,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
-        },
-        "Components": [
-          {
-            "$id": 16,
-            "$type": "Chunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "material": {
-              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
-            },
-            "_identifier": "005dddee-b57b-47d7-9021-e85b6ba300ee",
-            "_enabled": true,
-            "_enabledInHierarchy": false,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewChunk"
-          }
-        ],
-        "Children": [
-
-        ]
-      },
-      {
-        "$id": 17,
-        "Name": "Voxels",
-        "AssetPath": "",
-        "Identifier": "e49305a3-13ba-4759-9aa5-f056d1807ad6",
-        "Static": 0B,
-        "Enabled": 1B,
-        "EnabledInHierarchy": 1B,
-        "TagIndex": 0,
-        "LayerIndex": 0,
-        "HideFlags": 0,
-        "Transform": {
-          "$id": 18,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
-        },
-        "Components": [
-
-        ],
-        "Children": [
-          {
-            "$id": 2
-          },
-          {
-            "$id": 11
-          },
-          {
-            "$id": 14
-          },
-          {
-            "$id": 19,
-            "Name": "OptimizedChunk",
-            "AssetPath": "",
-            "Identifier": "fc3fadba-dd79-49de-b83d-645df22acd97",
-            "Static": 0B,
-            "Enabled": 0B,
-            "EnabledInHierarchy": 0B,
-            "TagIndex": 0,
-            "LayerIndex": 0,
-            "HideFlags": 0,
-            "Transform": {
-              "$id": 20,
-              "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$id": 7,
+            "$type": "World, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "player": {
+              "$id": 8,
               "_localPosition": {
                 "X": 0F,
                 "Y": 0F,
@@ -358,36 +121,28 @@
                 "W": 1F
               }
             },
-            "Components": [
-              {
-                "$id": 21,
-                "$type": "OptimizedChunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "material": {
-                  "AssetID": "00000000-0000-0000-0000-000000000000"
-                },
-                "_identifier": "0e43fe50-6a20-4ac7-b8ea-ea281b516140",
-                "_enabled": true,
-                "_enabledInHierarchy": false,
-                "HideFlags": 0,
-                "AssetPath": "",
-                "AssetID": "00000000-0000-0000-0000-000000000000",
-                "Name": "NewOptimizedChunk"
-              }
-            ],
-            "Children": [
-
-            ]
+            "material": {
+              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
+            },
+            "RenderDistance": 4,
+            "_identifier": "cacddb06-227d-41ec-b846-3beb2bd618db",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewWorld"
           }
+        ],
+        "Children": [
+
         ]
       },
       {
-        "$id": 19
-      },
-      {
-        "$id": 22,
+        "$id": 9,
         "Name": "Camera",
         "AssetPath": "",
-        "Identifier": "586f19e8-4a41-40f2-9f4c-92dfe0ddb7fe",
+        "Identifier": "8e2e605a-574a-412a-b98c-969d41c1eb6e",
         "Static": 0B,
         "Enabled": 1B,
         "EnabledInHierarchy": 1B,
@@ -395,32 +150,16 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 23,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 0F,
-            "Y": 4.324969F,
-            "Z": -7.0705743F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
+          "$id": 8,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
         },
         "Components": [
           {
-            "$id": 24,
+            "$id": 10,
             "$type": "Prowl.Runtime.Camera, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Effects": [
               {
-                "$id": 25,
+                "$id": 11,
                 "$type": "Prowl.Runtime.Rendering.TonemapperEffect, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Type": 3,
                 "Contrast": 1.1F,
@@ -448,7 +187,7 @@
             "Target": NULL,
             "HDR": false,
             "RenderScale": 1F,
-            "_identifier": "9742575a-cc36-4b3e-8f18-7236490ea61a",
+            "_identifier": "d4b466c3-1244-4e1e-8158-a186edfcf6f8",
             "_enabled": true,
             "_enabledInHierarchy": true,
             "HideFlags": 0,
@@ -460,87 +199,21 @@
         "Children": [
 
         ]
-      },
-      {
-        "$id": 26,
-        "Name": "World",
-        "AssetPath": "",
-        "Identifier": "7f58b381-3c21-43a6-8c10-8e3881e87cb9",
-        "Static": 0B,
-        "Enabled": 1B,
-        "EnabledInHierarchy": 1B,
-        "TagIndex": 0,
-        "LayerIndex": 0,
-        "HideFlags": 0,
-        "Transform": {
-          "$id": 27,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
-        },
-        "Components": [
-          {
-            "$id": 28,
-            "$type": "World, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "player": {
-              "$id": 23
-            },
-            "material": {
-              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
-            },
-            "RenderDistance": 4,
-            "_identifier": "80a3908d-419c-4566-9d59-757fcac2db05",
-            "_enabled": true,
-            "_enabledInHierarchy": true,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewWorld"
-          }
-        ],
-        "Children": [
-
-        ]
       }
     ]
   },
   "_goIdentifiers": {
     "array": [
-      "8ca1f5b3-5cff-44d3-bb78-416d4ee28a98",
-      "80a175d4-d00c-4978-80d2-f4bedc00f7ae",
-      "1da74cb2-aa4a-463c-b266-fa5edf4aa71b",
-      "17c44d7c-567c-4be9-9134-7c4459fb6492",
-      "b8dc703a-2c8c-4f2a-9767-f11661d5efd6",
-      "e49305a3-13ba-4759-9aa5-f056d1807ad6",
-      "fc3fadba-dd79-49de-b83d-645df22acd97",
-      "586f19e8-4a41-40f2-9f4c-92dfe0ddb7fe",
-      "7f58b381-3c21-43a6-8c10-8e3881e87cb9"
+      "8660f5fa-bdbe-4c37-9cd5-03e06a9ced2d",
+      "deb6b068-ca5f-4987-bfa3-6df8f5740d4b",
+      "8e2e605a-574a-412a-b98c-969d41c1eb6e"
     ]
   },
   "_compIdentifiers": {
     "array": [
-      "9bfcbc68-072c-46b5-a915-613e009a4754",
-      "adeea2b6-3d34-4c52-b9e2-9c787b3835c0",
-      "2b09e5d8-848f-4ab0-9a4e-8d05bf114c0a",
-      "39f6863e-d29a-48f9-abc5-b56f1bab3d40",
-      "005dddee-b57b-47d7-9021-e85b6ba300ee",
-      "0e43fe50-6a20-4ac7-b8ea-ea281b516140",
-      "9742575a-cc36-4b3e-8f18-7236490ea61a",
-      "80a3908d-419c-4566-9d59-757fcac2db05"
+      "098c9e62-fcac-4d75-9b5b-29835c89c661",
+      "cacddb06-227d-41ec-b846-3beb2bd618db",
+      "d4b466c3-1244-4e1e-8158-a186edfcf6f8"
     ]
   },
   "_compIdOffsets": {
@@ -548,13 +221,7 @@
       0,
       1,
       2,
-      3,
-      4,
-      5,
-      5,
-      6,
-      7,
-      8
+      3
     ]
   },
   "Fog": {
@@ -617,7 +284,7 @@
     }
   },
   "BakedLighting": {
-    "$id": 29,
+    "$id": 12,
     "Lightmaps": [
 
     ],
@@ -643,7 +310,7 @@
     }
   },
   "LightmapBake": {
-    "$id": 30,
+    "$id": 13,
     "AtlasSize": 1024,
     "TexelsPerUnit": 20F,
     "DilatePixels": 2,

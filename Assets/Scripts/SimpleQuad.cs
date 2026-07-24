@@ -3,7 +3,7 @@ using Prowl.Runtime;
 using Prowl.Runtime.Resources;
 using Prowl.Vector;
 
-public class Quad : MonoBehaviour
+public class SimpleQuad : MonoBehaviour
 {
     public AssetRef<Material> material;
 

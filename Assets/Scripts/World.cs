@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Prowl.PaperUI;
+using Prowl.PaperUI.LayoutEngine;
 using Prowl.Runtime;
 using Prowl.Runtime.Resources;
 using Prowl.Vector;
@@ -13,6 +15,16 @@ public class World : MonoBehaviour
     private int ChunkSize = 16;
 
     Dictionary<Int2, OptimizedChunk> chunks = new();
+
+    public override void OnGui(Paper paper)
+    {
+        using (paper.Column("mycolumn").Enter())
+        {
+            paper.Box("redbox").Width(UnitValue.Pixels(100)).Height(UnitValue.Pixels(100)).BackgroundColor(Color.Red);
+
+            paper.Box("redbox2").Width(UnitValue.Pixels(100)).Height(UnitValue.Pixels(100)).BackgroundColor(Color.Green);
+        }
+    }
 
     public override void Update()
     {
