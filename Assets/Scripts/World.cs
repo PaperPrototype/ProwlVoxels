@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Prowl.PaperUI;
 using Prowl.PaperUI.LayoutEngine;
@@ -5,10 +6,14 @@ using Prowl.Runtime;
 using Prowl.Runtime.Resources;
 using Prowl.Vector;
 
+namespace Voxels;
+
 public class World : MonoBehaviour
 {
     public Transform player;
     public AssetRef<Material> material;
+
+    public int PhysicsDistance = 1;
 
     public int RenderDistance = 4;
 
@@ -18,15 +23,25 @@ public class World : MonoBehaviour
 
     public override void OnGui(Paper paper)
     {
-        using (paper.Column("mycolumn").Enter())
+        using (paper.Column("123").Enter())
         {
-            paper.Box("redbox").Width(UnitValue.Pixels(100)).Height(UnitValue.Pixels(100)).BackgroundColor(Color.Red);
+            paper.Box("redbox")
+                .Width(UnitValue.Pixels(100))
+                .Height(UnitValue.Pixels(100))
+                .BackgroundColor(Color.Red);
 
-            paper.Box("redbox2").Width(UnitValue.Pixels(100)).Height(UnitValue.Pixels(100)).BackgroundColor(Color.Green);
+            paper.Box("greenbox")
+                .Hovered.
+                    BackgroundColor(Color.Blue)
+                .End()
+                .OnClick((_) => Debug.Log("Hello World"))
+                .Width(UnitValue.Pixels(100))
+                .Height(UnitValue.Pixels(100))
+                .BackgroundColor(Color.Green);
         }
     }
 
-    public override void Update()
+    public override void Start()
     {
         Int2 playerChunk = WorldToChunkPos(player.Position);
 
@@ -41,12 +56,31 @@ public class World : MonoBehaviour
             }
         }
 
+        for (int x = -PhysicsDistance; x <= PhysicsDistance; x++)
+        {
+            for (int z = -PhysicsDistance; z <= PhysicsDistance; z++)
+            {
+                Int2 chunkPos = new(playerChunk.X + x, playerChunk.Y + z);
+
+                if (chunks.TryGetValue(chunkPos, out var chunk))
+                {
+                    if (IsInsidePhysicsDistance(chunkPos, playerChunk))
+                    {
+                        chunk.EnablePhysics(true);
+                    }
+                    else
+                    {
+                        chunk.EnablePhysics(false);
+                    }
+                }
+            }
+        }
+
         List<Int2>? toUnload = null;
         foreach (var pos in chunks.Keys)
         {
-            int dx = pos.X - playerChunk.X;
-            int dz = pos.Y - playerChunk.Y;
-            if (dx > RenderDistance || dx < -RenderDistance || dz > RenderDistance || dz < -RenderDistance)
+            // if outside of the render distance
+            if (!IsInsideRenderDistance(pos, playerChunk))
             {
                 toUnload ??= [];
                 toUnload.Add(pos);
@@ -58,6 +92,34 @@ public class World : MonoBehaviour
                 UnloadChunk(pos);
     }
 
+    private bool IsInsideRenderDistance(Int2 pos, Int2 playerChunk)
+    {
+        // if outside of the render distance
+        var cardinalDistance = new Int2(pos.X - playerChunk.X, pos.Y - playerChunk.Y);
+        if (cardinalDistance.X >  RenderDistance || 
+            cardinalDistance.X < -RenderDistance || 
+            cardinalDistance.Y >  RenderDistance || 
+            cardinalDistance.Y < -RenderDistance)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private bool IsInsidePhysicsDistance(Int2 pos, Int2 playerChunk)
+    {
+        // if outside of the render distance
+        var cardinalDistance = new Int2(pos.X - playerChunk.X, pos.Y - playerChunk.Y);
+        if (cardinalDistance.X >  PhysicsDistance || 
+            cardinalDistance.X < -PhysicsDistance || 
+            cardinalDistance.Y >  PhysicsDistance || 
+            cardinalDistance.Y < -PhysicsDistance)
+        {
+            return false;
+        }
+        return true;
+    }
+
     private void LoadChunk(Int2 chunkPos)
     {
         var pos = new Float3(chunkPos.X * ChunkSize, 0, chunkPos.Y * ChunkSize);
@@ -65,6 +127,7 @@ public class World : MonoBehaviour
         GameObject chunkGO = new($"Chunk_{chunkPos.X}_{chunkPos.Y}");
         OptimizedChunk chunk = chunkGO.AddComponent<OptimizedChunk>();
         chunk.Initialize(this, pos, material);
+        chunk.Generate();
 
         chunks[chunkPos] = chunk;
         GameObject.Scene.Add(chunkGO);

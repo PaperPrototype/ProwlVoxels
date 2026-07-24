@@ -3,17 +3,24 @@ using Prowl.Runtime;
 using Prowl.Runtime.Resources;
 using Prowl.Vector;
 
+namespace Voxels;
+
 public class OptimizedChunk : MonoBehaviour
 {
     public AssetRef<Material> material;
 
     private static int ChunkSize = 16;
 
-    private MeshRenderer meshRenderer;
+    private MeshRenderer? meshRenderer;
+    private MeshCollider? meshCollider;
 
     private Float3 position;
 
-    private byte[,,] voxels = new byte[ChunkSize, ChunkSize, ChunkSize];
+    // private byte[,,] voxels = new byte[ChunkSize, ChunkSize, ChunkSize];
+
+    private Mesh mesh = new Mesh { IndexFormat = IndexFormat.UInt32 };
+
+    private bool isGenerated = false;
 
     public void Initialize(World world, Float3 _position, AssetRef<Material> _material)
     {
@@ -24,10 +31,33 @@ public class OptimizedChunk : MonoBehaviour
         GameObject.Transform.Position = position;
     }
 
+    public void EnablePhysics(bool enabled)
+    {
+        if (meshCollider is null && enabled)
+        {
+            meshCollider = AddComponent<MeshCollider>();
+            meshCollider.Mesh = mesh;
+        }
+        else
+        {
+            RemoveComponent<MeshCollider>(meshCollider);
+            meshCollider = null;
+        }
+    }
+
     public override void Start()
     {
+        Generate();
+    }
+
+    public void Generate()
+    {
+        if (isGenerated) return;
+
         var noise = new FastNoiseLite();
         noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+
+        byte[,,] voxels = new byte[ChunkSize, ChunkSize, ChunkSize];
 
         bool IsNoiseAir(int x, int y, int z)
         {
@@ -55,7 +85,8 @@ public class OptimizedChunk : MonoBehaviour
             }
             else
             {
-                return IsNoiseAir(x, y, z);
+                // return IsNoiseAir(x, y, z);
+                return true;
             }
         }
 
@@ -85,11 +116,6 @@ public class OptimizedChunk : MonoBehaviour
 
         meshRenderer = AddComponent<MeshRenderer>();
         meshRenderer.Material = material;
-
-        var mesh = new Mesh
-        {
-            IndexFormat = IndexFormat.UInt32
-        };
 
         var verts = new List<Float3>();
         var indices = new List<uint>();
@@ -139,5 +165,7 @@ public class OptimizedChunk : MonoBehaviour
         mesh.RecalculateTangents();
 
         meshRenderer.Mesh = mesh;
+
+        isGenerated = true;
     }
 }

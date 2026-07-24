@@ -1,0 +1,53 @@
+using Prowl.Runtime;
+using Prowl.Vector;
+
+[RequireComponent(typeof(CharacterController))]
+public class CharacterInput : MonoBehaviour
+{
+    public Transform? LookDirection;
+
+    public float MoveSpeed = 6f;
+    public float JumpSpeed = 8f;
+    public float Gravity = -20f;
+
+    private CharacterController _controller = null!;
+    private Float3 _velocity;
+
+    public override void Start()
+    {
+        _controller = GetComponent<CharacterController>()!;
+    }
+
+    public override void Update()
+    {
+        Float2 wasd = Input.GetWASD();
+
+        if (LookDirection is null)
+        {
+            Float3 planar = Transform.Right * wasd.X + Transform.Forward * wasd.Y;
+            _velocity.X = planar.X * MoveSpeed;
+            _velocity.Z = planar.Z * MoveSpeed;
+        }
+        else
+        {
+            Float3 planar = 
+                Float3.Normalize(Float3.ProjectOntoPlane(LookDirection.Right, Float3.UnitY)) * wasd.X +
+                Float3.Normalize(Float3.ProjectOntoPlane(LookDirection.Forward, Float3.UnitY)) * wasd.Y;
+            _velocity.X = planar.X * MoveSpeed;
+            _velocity.Z = planar.Z * MoveSpeed;
+        }
+
+        if (_controller.IsGrounded)
+        {
+            _velocity.Y = 0f;
+            if (Input.GetKeyDown(KeyCode.Space))
+                _velocity.Y = JumpSpeed;
+        }
+        else
+        {
+            _velocity.Y += Gravity * Time.DeltaTime;
+        }
+
+        _controller.Move(_velocity * Time.DeltaTime);
+    }
+}
