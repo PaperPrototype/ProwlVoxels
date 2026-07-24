@@ -362,7 +362,7 @@
               "$id": 21,
               "_localPosition": {
                 "X": 0F,
-                "Y": 11F,
+                "Y": 124F,
                 "Z": 0F
               },
               "_localScale": {
@@ -380,7 +380,7 @@
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
-            "PhysicsDistance": 1,
+            "PhysicsDistance": 1F,
             "RenderDistance": 4,
             "_identifier": "4a62e27b-aa96-4211-a677-92254d01e89e",
             "_enabled": true,
@@ -1678,34 +1678,71 @@
         ],
         "Children": [
           {
-            "$id": 33
-          },
-          {
-            "$id": 38
-          },
-          {
-            "$id": 43
-          },
-          {
-            "$id": 48
-          },
-          {
-            "$id": 53
-          },
-          {
-            "$id": 58
-          },
-          {
-            "$id": 63
-          },
-          {
-            "$id": 68
-          },
-          {
-            "$id": 73
-          },
-          {
-            "$id": 13
+            "$id": 80,
+            "Name": "Cubes",
+            "AssetPath": "",
+            "Identifier": "4aca0dd8-2818-4e30-a661-858627bd2465",
+            "Static": 0B,
+            "Enabled": 1B,
+            "EnabledInHierarchy": 1B,
+            "TagIndex": 0,
+            "LayerIndex": 0,
+            "HideFlags": 0,
+            "Transform": {
+              "$id": 81,
+              "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+              "_localPosition": {
+                "X": 0F,
+                "Y": 0F,
+                "Z": 0F
+              },
+              "_localScale": {
+                "X": 1F,
+                "Y": 1F,
+                "Z": 1F
+              },
+              "_localRotation": {
+                "X": 0F,
+                "Y": 0F,
+                "Z": 0F,
+                "W": 1F
+              }
+            },
+            "Components": [
+
+            ],
+            "Children": [
+              {
+                "$id": 33
+              },
+              {
+                "$id": 38
+              },
+              {
+                "$id": 43
+              },
+              {
+                "$id": 48
+              },
+              {
+                "$id": 53
+              },
+              {
+                "$id": 58
+              },
+              {
+                "$id": 63
+              },
+              {
+                "$id": 68
+              },
+              {
+                "$id": 73
+              },
+              {
+                "$id": 13
+              }
+            ]
           },
           {
             "$id": 18
@@ -1725,7 +1762,10 @@
         ]
       },
       {
-        "$id": 80,
+        "$id": 80
+      },
+      {
+        "$id": 82,
         "Name": "Character",
         "AssetPath": "",
         "Identifier": "ecef5cdb-0c9e-44df-b50c-30372fd444cb",
@@ -1736,7 +1776,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 81,
+          "$id": 83,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1760,7 +1800,7 @@
         ],
         "Children": [
           {
-            "$id": 82,
+            "$id": 84,
             "Name": "CharacterController",
             "AssetPath": "",
             "Identifier": "f0d3f933-e147-48ef-8019-b77327cafdce",
@@ -1776,7 +1816,7 @@
             },
             "Components": [
               {
-                "$id": 83,
+                "$id": 85,
                 "$type": "Prowl.Runtime.CharacterController, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Shape": 1,
                 "Radius": 0.5F,
@@ -1794,7 +1834,7 @@
                 "Name": "NewCharacterController"
               },
               {
-                "$id": 84,
+                "$id": 86,
                 "$type": "CharacterInput, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "LookDirection": {
                   "$id": 9
@@ -1813,7 +1853,7 @@
             ],
             "Children": [
               {
-                "$id": 85,
+                "$id": 87,
                 "Name": "Cylinder",
                 "AssetPath": "",
                 "Identifier": "248f894a-8ee2-4481-b19a-33d7142702fc",
@@ -1824,7 +1864,7 @@
                 "LayerIndex": 0,
                 "HideFlags": 0,
                 "Transform": {
-                  "$id": 86,
+                  "$id": 88,
                   "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "_localPosition": {
                     "X": 0F,
@@ -1845,7 +1885,7 @@
                 },
                 "Components": [
                   {
-                    "$id": 87,
+                    "$id": 89,
                     "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                     "Mesh": {
                       "AssetID": "52ede889-21f7-9a53-83cc-e787a84b2974"
@@ -1883,10 +1923,10 @@
         ]
       },
       {
-        "$id": 82
+        "$id": 84
       },
       {
-        "$id": 85
+        "$id": 87
       }
     ]
   },
@@ -1910,6 +1950,7 @@
       "79a6ea7f-6eba-4bbd-bd15-fddff2ed13e3",
       "f92b1875-4d8f-43b1-a15c-da816719c821",
       "6aa96519-80c7-413b-8a86-70fcab1c23da",
+      "4aca0dd8-2818-4e30-a661-858627bd2465",
       "ecef5cdb-0c9e-44df-b50c-30372fd444cb",
       "f0d3f933-e147-48ef-8019-b77327cafdce",
       "248f894a-8ee2-4481-b19a-33d7142702fc"
@@ -1984,6 +2025,7 @@
       40,
       40,
       40,
+      40,
       42,
       43
     ]
@@ -2048,7 +2090,7 @@
     }
   },
   "BakedLighting": {
-    "$id": 88,
+    "$id": 90,
     "Lightmaps": [
 
     ],
@@ -2074,7 +2116,7 @@
     }
   },
   "LightmapBake": {
-    "$id": 89,
+    "$id": 91,
     "AtlasSize": 1024,
     "TexelsPerUnit": 20F,
     "DilatePixels": 2,

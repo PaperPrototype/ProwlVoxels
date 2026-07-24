@@ -13,17 +13,13 @@ public class World : MonoBehaviour
 {
     public Transform player;
     public AssetRef<Material> material;
-
-    public int PhysicsDistance = 1;
-
     public int RenderDistance = 4;
 
     private int ChunkSize = 16;
-
-    Dictionary<Int2, OptimizedChunk> chunks = new();
-
-    Float3 initialPlayerPos;
-    bool firstRunIsLoaded = false;
+    private float PhysicsDistance = 1; // default, should not be modified
+    private Dictionary<Int2, OptimizedChunk> chunks = new();
+    private Float3 initialPlayerPos;
+    private bool firstRunIsLoaded = false;
 
     public override void OnGui(Paper paper)
     {
@@ -50,7 +46,7 @@ public class World : MonoBehaviour
         initialPlayerPos = player.Position;
     }
 
-    public override async void Update()
+    public override void Update()
     {
         Int2 playerChunk = WorldToChunkPos(player.Position);
 
@@ -60,20 +56,14 @@ public class World : MonoBehaviour
             {
                 Int2 chunkPos = new(playerChunk.X + x, playerChunk.Y + z);
 
+                // load chunk before doing anything else
                 if (!chunks.ContainsKey(chunkPos))
-                    await LoadChunk(chunkPos);
-            }
-        }
-
-        for (int x = -RenderDistance; x <= RenderDistance; x++)
-        {
-            for (int z = -RenderDistance; z <= RenderDistance; z++)
-            {
-                Int2 chunkPos = new(playerChunk.X + x, playerChunk.Y + z);
-
+                    LoadChunk(chunkPos);
+                
+                // enable or disable physics
                 if (chunks.TryGetValue(chunkPos, out var chunk))
                 {
-                    if (IsInsidePhysicsDistance(chunkPos, playerChunk))
+                    if (IsInsidePhysicsDistance(chunkPos))
                     {
                         chunk.EnablePhysics(true);
                     }
@@ -107,10 +97,10 @@ public class World : MonoBehaviour
         }
     }
 
-    private bool IsInsideRenderDistance(Int2 pos, Int2 playerChunk)
+    private bool IsInsideRenderDistance(Int2 chunkPos, Int2 playerChunk)
     {
         // if outside of the render distance
-        var cardinalDistance = new Int2(pos.X - playerChunk.X, pos.Y - playerChunk.Y);
+        var cardinalDistance = new Int2(chunkPos.X - playerChunk.X, chunkPos.Y - playerChunk.Y);
         if (cardinalDistance.X >  RenderDistance || 
             cardinalDistance.X < -RenderDistance || 
             cardinalDistance.Y >  RenderDistance || 
@@ -121,28 +111,35 @@ public class World : MonoBehaviour
         return true;
     }
 
-    private bool IsInsidePhysicsDistance(Int2 pos, Int2 playerChunk)
+    private bool IsInsidePhysicsDistance(Int2 chunkPos)
     {
+        // convert from chunk distance to meter distance
+        var distanceInMeters = PhysicsDistance * ChunkSize;
+
+        var centerChunkPos = new Float2((chunkPos.X * ChunkSize) + (ChunkSize * 0.5f), (chunkPos.Y * ChunkSize)+ (ChunkSize * 0.5f));
+
         // if outside of the render distance
-        var cardinalDistance = new Int2(pos.X - playerChunk.X, pos.Y - playerChunk.Y);
-        if (cardinalDistance.X >  PhysicsDistance || 
-            cardinalDistance.X < -PhysicsDistance || 
-            cardinalDistance.Y >  PhysicsDistance || 
-            cardinalDistance.Y < -PhysicsDistance)
+        var cardinalDistance = new Float2(centerChunkPos.X - player.Position.X, centerChunkPos.Y  - player.Position.Z);
+        if (cardinalDistance.X >  distanceInMeters || 
+            cardinalDistance.X < -distanceInMeters || 
+            cardinalDistance.Y >  distanceInMeters || 
+            cardinalDistance.Y < -distanceInMeters)
         {
             return false;
         }
         return true;
+
+        // return Float2.Distance((Float2)pos * ChunkSize, (Float2)playerChunk * ChunkSize) < PhysicsDistance * ChunkSize;
     }
 
-    private async Task LoadChunk(Int2 chunkPos)
+    private void LoadChunk(Int2 chunkPos)
     {
         var pos = new Float3(chunkPos.X * ChunkSize, 0, chunkPos.Y * ChunkSize);
 
         GameObject chunkGO = new($"Chunk_{chunkPos.X}_{chunkPos.Y}");
         OptimizedChunk chunk = chunkGO.AddComponent<OptimizedChunk>();
         chunk.Initialize(this, pos, material);
-        await chunk.Generate();
+        chunk.Generate();
 
         chunks[chunkPos] = chunk;
         GameObject.Scene.Add(chunkGO);
