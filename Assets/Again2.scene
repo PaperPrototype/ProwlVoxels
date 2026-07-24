@@ -380,8 +380,7 @@
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
-            "PhysicsDistance": 1F,
-            "RenderDistance": 4,
+            "RenderDistance": 8,
             "_identifier": "4a62e27b-aa96-4211-a677-92254d01e89e",
             "_enabled": true,
             "_enabledInHierarchy": true,
