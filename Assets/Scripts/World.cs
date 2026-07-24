@@ -17,7 +17,7 @@ public class World : MonoBehaviour
 
     private int ChunkSize = 16;
     private float PhysicsDistance = 1; // default, should not be modified
-    private Dictionary<Int2, OptimizedChunk> chunks = new();
+    private Dictionary<Int2, MoreOptimizedChunk> chunks = new();
     private Float3 initialPlayerPos;
     private bool firstRunIsLoaded = false;
 
@@ -137,7 +137,7 @@ public class World : MonoBehaviour
         var pos = new Float3(chunkPos.X * ChunkSize, 0, chunkPos.Y * ChunkSize);
 
         GameObject chunkGO = new($"Chunk_{chunkPos.X}_{chunkPos.Y}");
-        OptimizedChunk chunk = chunkGO.AddComponent<OptimizedChunk>();
+        MoreOptimizedChunk chunk = chunkGO.AddComponent<MoreOptimizedChunk>();
         chunk.Initialize(this, pos, material);
         chunk.Generate();
 
@@ -147,7 +147,7 @@ public class World : MonoBehaviour
 
     private void UnloadChunk(Int2 chunkPos)
     {
-        if (!chunks.TryGetValue(chunkPos, out OptimizedChunk? chunk))
+        if (!chunks.TryGetValue(chunkPos, out MoreOptimizedChunk? chunk))
             return;
 
         chunks.Remove(chunkPos);

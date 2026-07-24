@@ -2,6 +2,8 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Jitter2.Collision.Shapes;
+using Jitter2.LinearMath;
 using Prowl.Editor.Core;
 using Prowl.Runtime;
 using Prowl.Runtime.Resources;
@@ -16,10 +18,9 @@ public class MoreOptimizedChunk : MonoBehaviour
     private static int ChunkSize = 16;
 
     private MeshRenderer? meshRenderer;
+    private BoxelCollider? boxelCollider;
 
-    private readonly List<BoxCollider> boxColliders = new();
-    private List<(Float3 Center, Float3 Size)> colliderBoxes = new();
-    private bool physicsEnabled = false;
+    private List<RigidBodyShape> colliderShapes = new();
 
     private Float3 position;
 
@@ -40,87 +41,34 @@ public class MoreOptimizedChunk : MonoBehaviour
 
     public void EnablePhysics(bool enabled)
     {
-        if (enabled == physicsEnabled) return;
-        physicsEnabled = enabled;
-
         if (enabled)
         {
-            foreach (var box in colliderBoxes)
+            if (boxelCollider is null)
             {
-                BoxCollider collider = AddComponent<BoxCollider>();
-                collider.Center = box.Center;
-                collider.Size = box.Size;
-                boxColliders.Add(collider);
+                boxelCollider = AddComponent<BoxelCollider>();
+                boxelCollider.Set(colliderShapes.ToArray());
             }
         }
         else
         {
-            GameObject.RemoveAll<BoxCollider>();
-            boxColliders.Clear();
+            if (boxelCollider is not null)
+            {
+                RemoveComponent<BoxelCollider>(boxelCollider);
+                boxelCollider = null;
+            }
         }
-    }
-
-    /// <summary>
-    /// Greedily merges solid voxels into the fewest axis-aligned boxes: expand each unclaimed solid
-    /// voxel along X, then Y (while the whole X-run stays solid), then Z (while the whole X*Y slab
-    /// stays solid), matching greedy-meshing but for colliders instead of render quads.
-    /// </summary>
-    private static List<(Float3 Center, Float3 Size)> BuildColliderBoxes(byte[,,] voxels)
-    {
-        var boxes = new List<(Float3, Float3)>();
-        bool[,,] merged = new bool[ChunkSize, ChunkSize, ChunkSize];
-
-        bool RowIsSolid(int x, int y, int z, int dx)
-        {
-            for (int ix = 0; ix < dx; ix++)
-                if (merged[x + ix, y, z] || voxels[x + ix, y, z] == 0)
-                    return false;
-            return true;
-        }
-
-        bool SlabIsSolid(int x, int y, int z, int dx, int dy)
-        {
-            for (int iy = 0; iy < dy; iy++)
-                if (!RowIsSolid(x, y + iy, z, dx))
-                    return false;
-            return true;
-        }
-
-        for (int x = 0; x < ChunkSize; x++)
-        for (int y = 0; y < ChunkSize; y++)
-        for (int z = 0; z < ChunkSize; z++)
-        {
-            if (merged[x, y, z] || voxels[x, y, z] == 0)
-                continue;
-
-            int dx = 1;
-            while (x + dx < ChunkSize && !merged[x + dx, y, z] && voxels[x + dx, y, z] != 0)
-                dx++;
-
-            int dy = 1;
-            while (y + dy < ChunkSize && RowIsSolid(x, y + dy, z, dx))
-                dy++;
-
-            int dz = 1;
-            while (z + dz < ChunkSize && SlabIsSolid(x, y, z + dz, dx, dy))
-                dz++;
-
-            for (int ix = 0; ix < dx; ix++)
-            for (int iy = 0; iy < dy; iy++)
-            for (int iz = 0; iz < dz; iz++)
-                merged[x + ix, y + iy, z + iz] = true;
-
-            var size = new Float3(dx, dy, dz);
-            var center = new Float3(x, y, z) + size * 0.5f;
-            boxes.Add((center, size));
-        }
-
-        return boxes;
     }
 
     public override void Start()
     {
         Generate();
+    }
+
+    private void AddColliderShape(int x, int y, int z)
+    {
+        var boxShape = new BoxShape(1f, 1f, 1f);
+        var center = new JVector(x + 0.5f, y + 0.5f, z + 0.5f);
+        colliderShapes.Add(new TransformedShape(boxShape, center));
     }
 
     public void Generate()
@@ -187,8 +135,6 @@ public class MoreOptimizedChunk : MonoBehaviour
             }
         }
 
-        colliderBoxes = BuildColliderBoxes(voxels);
-
         var verts = new List<Float3>();
         var indices = new List<uint>();
         var uv = new List<Float2>();
@@ -201,10 +147,14 @@ public class MoreOptimizedChunk : MonoBehaviour
 
             if (!IsAir(x, y, z))
             {
+                bool isSurface = false;
+
                 for (int face = 0; face < 6; face++)
                 {
                     if (IsNeighborAir(x, y, z, face))
                     {
+                        isSurface = true;
+
                         indices.Add((uint)verts.Count + 0);
                         indices.Add((uint)verts.Count + 1);
                         indices.Add((uint)verts.Count + 2);
@@ -222,6 +172,11 @@ public class MoreOptimizedChunk : MonoBehaviour
                         uv.Add(new Float2(1, 0));
                         uv.Add(new Float2(1, 1));
                     }
+                }
+
+                if (isSurface)
+                {
+                    AddColliderShape(x, y, z);
                 }
             }
         }
