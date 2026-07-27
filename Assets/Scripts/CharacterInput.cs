@@ -1,3 +1,5 @@
+using Prowl.PaperUI;
+using Prowl.PaperUI.LayoutEngine;
 using Prowl.Runtime;
 using Prowl.Vector;
 
@@ -41,7 +43,10 @@ public class CharacterInput : MonoBehaviour
         {
             _velocity.Y = 0f;
             if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Transform.Position = Transform.Position + Float3.UnitY;
                 _velocity.Y = JumpSpeed;
+            }
         }
         else
         {

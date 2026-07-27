@@ -8,6 +8,7 @@ using Prowl.Editor.Core;
 using Prowl.Runtime;
 using Prowl.Runtime.Resources;
 using Prowl.Vector;
+using Silk.NET.Vulkan;
 
 namespace Voxels;
 
@@ -25,12 +26,15 @@ public class MoreOptimizedChunk : MonoBehaviour
     private List<RigidBodyShape> colliderShapes = new();
 
     private Float3 position;
+    private Float3 halfExtents = (new Float3(ChunkSize, ChunkHeight, ChunkSize) * 0.5f);
+    private Float3 center => position + halfExtents;
 
-    // private byte[,,] voxels = new byte[ChunkSize, ChunkSize, ChunkSize];
+    private bool isGenerated = false;
+
+    private byte[,,] voxels = new byte[ChunkSize, ChunkHeight, ChunkSize];
 
     private Mesh mesh = new Mesh { IndexFormat = IndexFormat.UInt32 };
 
-    private bool isGenerated = false;
 
     public void Initialize(World world, Float3 _position, AssetRef<Material> _material)
     {
@@ -39,6 +43,33 @@ public class MoreOptimizedChunk : MonoBehaviour
 
         GameObject.Transform.Parent = world.Transform;
         GameObject.Transform.Position = position;
+
+        var rigidbody = AddComponent<Rigidbody3D>();
+        rigidbody.MotionType = Jitter2.Dynamics.MotionType.Static;
+        rigidbody.AffectedByGravity = false;
+
+        meshRenderer = AddComponent<MeshRenderer>();
+        meshRenderer.Material = material;
+    }
+
+    public void UpdateBlock(int x, int y, int z, byte voxel)
+    {
+        if (IsInsideBounds(x, y, z)) 
+        {
+            Debug.Log("IsInside bounds");
+            voxels[x, y, z] = voxel;
+            CalcMesh();
+            boxelCollider?.Set(colliderShapes.ToArray());
+        }
+        else
+        {
+            throw new ArgumentOutOfRangeException($"Voxel position ({x}, {y}, {z}) is outside chunk bounds.");
+        }
+    }
+
+    public override void DrawGizmos()
+    {
+        Debug.DrawWireCube(center, halfExtents, Color.Blue);
     }
 
     public void EnablePhysics(bool enabled)
@@ -73,14 +104,10 @@ public class MoreOptimizedChunk : MonoBehaviour
         colliderShapes.Add(new TransformedShape(boxShape, center));
     }
 
-    public void Generate()
+    private void CalcNoise()
     {
-        if (isGenerated) return;
-
         var noise = new FastNoiseLite();
         noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
-
-        byte[,,] voxels = new byte[ChunkSize, ChunkHeight, ChunkSize];
 
         bool IsNoiseAir(int x, int y, int z)
         {
@@ -119,26 +146,6 @@ public class MoreOptimizedChunk : MonoBehaviour
             return true;
         }
 
-        bool IsAir(int x, int y, int z)
-        {
-            if (x < ChunkSize && x >= 0 &&
-                y < ChunkHeight && y >= 0 &&
-                z < ChunkSize && z >= 0)
-            {
-                return voxels[x, y, z] == 0;
-            }
-            else
-            {
-                // return IsNoiseAir(x, y, z);
-                return true;
-            }
-        }
-
-        bool IsNeighborAir(float x, float y, float z, int face)
-        {
-            var pos = new Float3(x, y, z) + VoxelTables.Offsets[face];
-            return IsAir((int)pos.X, (int)pos.Y, (int)pos.Z);
-        }
 
         for (int x = 0; x < ChunkSize; x++)
         for (int y = 0; y < ChunkHeight; y++)
@@ -152,6 +159,30 @@ public class MoreOptimizedChunk : MonoBehaviour
             {
                 voxels[x, y, z] = 1; // Dirt
             }
+        }
+
+    }
+
+    private void CalcMesh()
+    {
+        colliderShapes.Clear();
+
+        bool IsAir(int x, int y, int z)
+        {
+            if (IsInsideBounds(x, y, z))
+            {
+                return voxels[x, y, z] == 0;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        bool IsNeighborAir(float x, float y, float z, int face)
+        {
+            var pos = new Float3(x, y, z) + VoxelTables.Offsets[face];
+            return IsAir((int)pos.X, (int)pos.Y, (int)pos.Z);
         }
 
         var verts = new List<Float3>();
@@ -202,6 +233,8 @@ public class MoreOptimizedChunk : MonoBehaviour
 
         if (verts.Count == 0) return;
 
+        mesh.Clear();
+
         mesh.Vertices = verts.ToArray();
         mesh.Indices = indices.ToArray();
         mesh.UV = uv.ToArray();
@@ -210,9 +243,29 @@ public class MoreOptimizedChunk : MonoBehaviour
         mesh.RecalculateNormals();
         mesh.RecalculateTangents();
 
-        meshRenderer = AddComponent<MeshRenderer>();
-        meshRenderer.Material = material;
         meshRenderer.Mesh = mesh;
+    }
+
+    bool IsInsideBounds(int x, int y, int z)
+    {
+        if (x < ChunkSize && x >= 0 &&
+            y < ChunkHeight && y >= 0 &&
+            z < ChunkSize && z >= 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public void Generate()
+    {
+        if (isGenerated) return;
+
+        CalcNoise();
+        CalcMesh();
 
         isGenerated = true;
     }

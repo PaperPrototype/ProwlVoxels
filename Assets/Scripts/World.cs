@@ -75,6 +75,11 @@ public class World : MonoBehaviour
             player.Position = initialPlayerPos;
             firstRunIsLoaded = true;
         }
+
+        if (Transform.Position.Y < 50)
+        {
+            Transform.Position = initialPlayerPos;
+        }
     }
 
     private bool IsInsideRenderDistance(Int2 chunkPos, Int2 playerChunk)

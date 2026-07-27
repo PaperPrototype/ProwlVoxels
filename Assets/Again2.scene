@@ -210,6 +210,7 @@
             "Sensitivity": 0.15F,
             "MinPitch": -89F,
             "MaxPitch": 89F,
+            "health": 0.5F,
             "_identifier": "92b47928-4288-4a1f-981c-d6eb52e40094",
             "_enabled": true,
             "_enabledInHierarchy": true,

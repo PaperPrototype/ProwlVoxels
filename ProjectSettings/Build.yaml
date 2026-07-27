@@ -13,7 +13,7 @@ MaxPakSizeMB: 2048
 PlatformProfiles:
   $id: 4
   $values:
-    - Platform: 0
+    - Platform: 2
       SelfContained: true
       PublishTrimmed: true
       WindowWidth: 1280
