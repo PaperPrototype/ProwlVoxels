@@ -22,6 +22,10 @@ public class CameraController : MonoBehaviour
 
     public override void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Input.UnlockCursor();
+        }
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
         {
             Input.LockCursor();

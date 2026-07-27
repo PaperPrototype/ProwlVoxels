@@ -21,26 +21,6 @@ public class World : MonoBehaviour
     private Float3 initialPlayerPos;
     private bool firstRunIsLoaded = false;
 
-    public override void OnGui(Paper paper)
-    {
-        using (paper.Column("123").Enter())
-        {
-            paper.Box("redbox")
-                .Width(UnitValue.Pixels(100))
-                .Height(UnitValue.Pixels(100))
-                .BackgroundColor(Color.Red);
-
-            paper.Box("greenbox")
-                .Hovered.
-                    BackgroundColor(Color.Blue)
-                .End()
-                .OnClick((_) => Debug.Log("Hello World"))
-                .Width(UnitValue.Pixels(100))
-                .Height(UnitValue.Pixels(100))
-                .BackgroundColor(Color.Green);
-        }
-    }
-
     public override void Start()
     {
         initialPlayerPos = player.Position;

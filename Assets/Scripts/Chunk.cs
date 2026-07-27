@@ -11,10 +11,28 @@ public class Chunk : MonoBehaviour
 
     private MeshRenderer _meshRenderer;
 
+
     public override void Start()
     {
         _meshRenderer = AddComponent<MeshRenderer>();
         _meshRenderer.Material = material;
+
+        var noise = new FastNoiseLite();
+        noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
+
+        bool IsDirt(float x, float y, float z)
+        {
+            var frequency = 2f;
+
+            var offset = new Float3(x, y, z) * frequency;
+
+            var height01 = (noise.GetNoise(offset.X, offset.Z) + 2) / 2f; // (0 to 1)
+
+            var terrainHeight = height01 * ChunkSize;
+
+            if (offset.Y < terrainHeight) return true;
+            return false;
+        }
 
         var mesh = new Mesh
         {
@@ -32,24 +50,27 @@ public class Chunk : MonoBehaviour
                 for (int z = 0; z < ChunkSize; z++)
                 {
                     var offset = new Float3(x, y, z);
-                    for (int face = 0; face < 6; face++)
+                    if (IsDirt(offset.X, offset.Y, offset.Z))
                     {
-                        indices.Add((uint)verts.Count + 0);
-                        indices.Add((uint)verts.Count + 1);
-                        indices.Add((uint)verts.Count + 2);
-                        indices.Add((uint)verts.Count + 2);
-                        indices.Add((uint)verts.Count + 1);
-                        indices.Add((uint)verts.Count + 3);
+                        for (int face = 0; face < 6; face++)
+                        {
+                            indices.Add((uint)verts.Count + 0);
+                            indices.Add((uint)verts.Count + 1);
+                            indices.Add((uint)verts.Count + 2);
+                            indices.Add((uint)verts.Count + 2);
+                            indices.Add((uint)verts.Count + 1);
+                            indices.Add((uint)verts.Count + 3);
 
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 0]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 1]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 2]] + offset);
-                        verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 3]] + offset);
+                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 0]] + offset);
+                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 1]] + offset);
+                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 2]] + offset);
+                            verts.Add(VoxelTables.Vertices[VoxelTables.QuadVertices[face, 3]] + offset);
 
-                        uv.Add(new Float2(0, 0));
-                        uv.Add(new Float2(0, 1));
-                        uv.Add(new Float2(1, 0));
-                        uv.Add(new Float2(1, 1));
+                            uv.Add(new Float2(0, 0));
+                            uv.Add(new Float2(0, 1));
+                            uv.Add(new Float2(1, 0));
+                            uv.Add(new Float2(1, 1));
+                        } 
                     }
                 }
             }

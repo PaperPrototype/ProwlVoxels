@@ -3,7 +3,7 @@ using Prowl.Vector;
 
 public static class VoxelTables
 {
-     // all 8 possible vertices for a voxel
+    // all 8 possible vertices for a voxel
     public static readonly Float3[] Vertices = new Float3[8]
     {
         new Float3(0.0f, 0.0f, 0.0f),
@@ -16,7 +16,7 @@ public static class VoxelTables
         new Float3(0.0f, 1.0f, 1.0f),
     };
 
-    // vertices to build a quad for each side of a voxel
+    // vertices to build a quad for each side of a voxel +Z
     public static readonly int[,] QuadVertices = new int[6, 4]
     {
         // quad order

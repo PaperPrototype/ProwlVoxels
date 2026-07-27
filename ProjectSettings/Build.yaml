@@ -1,20 +1,24 @@
 Scenes:
-  - Path: "Again2.scene"
-    SceneGuid: "710368ed-a45e-414b-8971-9e2faf3e966b"
-    Enabled: true
-    $id: 2
+  $id: 2
+  $values:
+    - Path: "Again2.scene"
+      SceneGuid: "710368ed-a45e-414b-8971-9e2faf3e966b"
+      Enabled: true
+      $id: 3
 Config: 1
 OutputDirectory: "Builds"
 PackagingMode: 1
 AssetMode: 1
 MaxPakSizeMB: 2048
 PlatformProfiles:
-  - Platform: 2
-    SelfContained: true
-    PublishTrimmed: true
-    WindowWidth: 1280
-    WindowHeight: 720
-    $id: 3
-    $type: "Prowl.Editor.Build.DesktopBuildProfile, Prowl.Editor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+  $id: 4
+  $values:
+    - Platform: 0
+      SelfContained: true
+      PublishTrimmed: true
+      WindowWidth: 1280
+      WindowHeight: 720
+      $id: 5
+      $type: "Prowl.Editor.Build.DesktopBuildProfile, Prowl.Editor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
 $id: 1
 $type: "Prowl.Editor.Projects.Settings.BuildSettings, Prowl.Editor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"

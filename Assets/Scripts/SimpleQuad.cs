@@ -20,12 +20,6 @@ public class SimpleQuad : MonoBehaviour
         var indices = new List<uint>();
         var uv = new List<Float2>();
 
-        indices.Add(0);
-        indices.Add(1);
-        indices.Add(2);
-        indices.Add(2);
-        indices.Add(1);
-        indices.Add(3);
 
         /*
         (1,1,0) ─────────── (1,1,1)
@@ -41,14 +35,17 @@ public class SimpleQuad : MonoBehaviour
         verts.Add(new Float3(1.0f, 0.0f, 1.0f));
         verts.Add(new Float3(1.0f, 1.0f, 1.0f));
 
-        uv.Add(new Float2(0, 0));
-        uv.Add(new Float2(0, 1));
-        uv.Add(new Float2(1, 0));
-        uv.Add(new Float2(1, 1));
+        indices.AddRange([0, 1, 2]);
+        indices.AddRange([2, 1, 3]);
 
         mesh.Vertices = verts.ToArray();
         mesh.Indices = indices.ToArray();
         mesh.UV = uv.ToArray();
+
+        uv.Add(new Float2(0, 0));
+        uv.Add(new Float2(0, 1));
+        uv.Add(new Float2(1, 0));
+        uv.Add(new Float2(1, 1));
 
         mesh.RecalculateBounds();
         mesh.RecalculateNormals();

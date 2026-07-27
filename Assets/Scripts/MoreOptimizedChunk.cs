@@ -17,6 +17,8 @@ public class MoreOptimizedChunk : MonoBehaviour
 
     private static int ChunkSize = 16;
 
+    private static int ChunkHeight = 256;
+
     private MeshRenderer? meshRenderer;
     private BoxelCollider? boxelCollider;
 
@@ -78,28 +80,49 @@ public class MoreOptimizedChunk : MonoBehaviour
         var noise = new FastNoiseLite();
         noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
 
-        byte[,,] voxels = new byte[ChunkSize, ChunkSize, ChunkSize];
+        byte[,,] voxels = new byte[ChunkSize, ChunkHeight, ChunkSize];
 
         bool IsNoiseAir(int x, int y, int z)
         {
             float frequency = 1.1f;
             var offset = (new Float3(x, y, z) + position) * frequency;
+            
+            float secondaryFrequencyFrequency = 0.1f;
+            float secondaryFrequency = (float)((noise.GetNoise(offset.X * secondaryFrequencyFrequency, offset.Z * secondaryFrequencyFrequency) + 1) * 0.5f); // 0 to 1
+            secondaryFrequency = (secondaryFrequency + 0.5f) * 2f; // 0.5 to 1.5
+            offset *= secondaryFrequency;
 
-            // var gradient = y / ChunkSize;
+            // bottom terrain
+            var noise01 = (noise.GetNoise(offset.X + 1000, offset.Z) + 1) * 0.5; 
+            var noise01_idk = ((noise.GetNoise((offset.X - 1000) * 0.01f, (offset.Z) * 0.1f) + 1) * 0.5) * 2f; 
+            var terrainMaxHeight = 16;
+            var terrainHeight = noise01 * noise01_idk * terrainMaxHeight;
+            if (y < terrainHeight) return false;
+            // return y > terrainHeight;
 
-            // var noise01 = (noise.GetNoise(offset.X, offset.Y, offset.Z) + 1) * 0.5; 
-            // return noise01 < 0.5f;
+            // caves
+            var caves = (noise.GetNoise(offset.X, offset.Y * 0.001f, offset.Z) + 1) * 0.5; // 0 to 1
+            if (caves < 0.5f) return true;
+    
+            // floating islands
+            var noise01FloatingIslandsTop = (noise.GetNoise(offset.X + 1000, offset.Z) + 1) * 0.5; // 0 to 1 * 16
+            var noise01FloatingIslandsBottom = (noise.GetNoise(offset.X - 82348, offset.Z + 100) + 1) * 0.5; // 0 to 1
+            var floatingIslandsHeight = 50;
+            var floatIslandsDepth = 25;
+            var bottomHeight = (noise01FloatingIslandsTop * floatIslandsDepth) + floatingIslandsHeight;
+            var topHeight = (noise01FloatingIslandsBottom * floatIslandsDepth) + floatingIslandsHeight;
+            if (offset.Y > bottomHeight && offset.Y < topHeight)
+            {
+                return false; // dirt
+            }
 
-            var noise01 = (noise.GetNoise(offset.X, offset.Z) + 1) * 0.5; 
-
-            var terrainHeight = noise01 * ChunkSize;
-            return y > terrainHeight;
+            return true;
         }
 
         bool IsAir(int x, int y, int z)
         {
             if (x < ChunkSize && x >= 0 &&
-                y < ChunkSize && y >= 0 &&
+                y < ChunkHeight && y >= 0 &&
                 z < ChunkSize && z >= 0)
             {
                 return voxels[x, y, z] == 0;
@@ -118,20 +141,16 @@ public class MoreOptimizedChunk : MonoBehaviour
         }
 
         for (int x = 0; x < ChunkSize; x++)
+        for (int y = 0; y < ChunkHeight; y++)
+        for (int z = 0; z < ChunkSize; z++)
         {
-            for (int y = 0; y < ChunkSize; y++)
+            if (IsNoiseAir(x, y, z))
             {
-                for (int z = 0; z < ChunkSize; z++)
-                {
-                    if (IsNoiseAir(x, y, z))
-                    {
-                        voxels[x, y, z] = 0; // Air
-                    }
-                    else
-                    {
-                        voxels[x, y, z] = 1; // Dirt
-                    }
-                }
+                voxels[x, y, z] = 0; // Air
+            }
+            else
+            {
+                voxels[x, y, z] = 1; // Dirt
             }
         }
 
@@ -140,7 +159,7 @@ public class MoreOptimizedChunk : MonoBehaviour
         var uv = new List<Float2>();
 
         for (int x = 0; x < ChunkSize; x++)
-        for (int y = 0; y < ChunkSize; y++)
+        for (int y = 0; y < ChunkHeight; y++)
         for (int z = 0; z < ChunkSize; z++)
         {
             var offset = new Float3(x, y, z);

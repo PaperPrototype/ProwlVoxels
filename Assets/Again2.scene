@@ -2,9 +2,10 @@
   "$id": 1,
   "$type": "Prowl.Runtime.Resources.Scene, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
   "serializeObj": {
+    "$id": 2,
     "array": [
       {
-        "$id": 2,
+        "$id": 3,
         "Name": "Directional Light",
         "AssetPath": "",
         "Identifier": "ef8c3d12-93f2-4f2c-9232-1bc52ae9757d",
@@ -15,7 +16,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 3,
+          "$id": 4,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -28,18 +29,18 @@
             "Z": 1F
           },
           "_localRotation": {
-            "X": -0.4082179F,
-            "Y": 0.23456971F,
-            "Z": 0.10938165F,
-            "W": 0.87542605F
+            "X": -0.40821797F,
+            "Y": 0.23456974F,
+            "Z": 0.10938167F,
+            "W": 0.8754262F
           }
         },
         "Components": [
           {
-            "$id": 4,
+            "$id": 5,
             "$type": "Prowl.Runtime.DirectionalLight, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "ShadowResolution": 2048,
-            "Cascades": 2,
+            "ShadowResolution": 2048L,
+            "Cascades": 2L,
             "ShadowDistance": 70F,
             "Color": {
               "R": 1F,
@@ -52,12 +53,12 @@
             "ShadowBias": 0.001F,
             "ShadowNormalBias": 0F,
             "CastShadows": true,
-            "ShadowQuality": 1,
-            "BakeMode": 0,
+            "ShadowQuality": 1L,
+            "BakeMode": 0L,
             "_identifier": "bbc0ed1c-c7f6-4845-b774-81a1cdff3ed7",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewDirectionalLight"
@@ -68,7 +69,7 @@
         ]
       },
       {
-        "$id": 5,
+        "$id": 6,
         "Name": "Chunk",
         "AssetPath": "",
         "Identifier": "59368f36-a807-4d04-a31f-ac32f0637903",
@@ -79,7 +80,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 6,
+          "$id": 7,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -100,7 +101,7 @@
         },
         "Components": [
           {
-            "$id": 7,
+            "$id": 8,
             "$type": "Voxels.OptimizedChunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
@@ -108,7 +109,7 @@
             "_identifier": "a773bc5a-4a93-4924-b429-017cf8d57dcd",
             "_enabled": true,
             "_enabledInHierarchy": false,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewOptimizedChunk"
@@ -119,7 +120,7 @@
         ]
       },
       {
-        "$id": 8,
+        "$id": 9,
         "Name": "Camera",
         "AssetPath": "",
         "Identifier": "b007053b-770b-4986-9312-0aab857671ce",
@@ -130,7 +131,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 9,
+          "$id": 10,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -151,19 +152,30 @@
         },
         "Components": [
           {
-            "$id": 10,
+            "$id": 11,
             "$type": "Prowl.Runtime.Camera, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Effects": [
-              {
-                "$id": 11,
-                "$type": "Prowl.Runtime.Rendering.TonemapperEffect, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Type": 3,
-                "Contrast": 1.1F,
-                "Saturation": 1.1F,
-                "Enabled": true
-              }
-            ],
-            "ClearFlags": 3,
+            "Effects": {
+              "$id": 12,
+              "$values": [
+                {
+                  "$id": 13,
+                  "$type": "Prowl.Runtime.Rendering.FXAAEffect, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "EdgeThresholdMax": 0.0625F,
+                  "EdgeThresholdMin": 0.0312F,
+                  "SubpixelQuality": 0.75F,
+                  "Enabled": true
+                },
+                {
+                  "$id": 14,
+                  "$type": "Prowl.Runtime.Rendering.TonemapperEffect, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Type": 3L,
+                  "Contrast": 1.1F,
+                  "Saturation": 1.1F,
+                  "Enabled": true
+                }
+              ]
+            },
+            "ClearFlags": 3L,
             "ClearColor": {
               "R": 0F,
               "G": 0F,
@@ -173,11 +185,11 @@
             "CullingMask": {
               "mask": 4294967295U
             },
-            "ProjectionMode": 0,
+            "ProjectionMode": 0L,
             "FieldOfView": 60F,
             "OrthographicSize": 0.5F,
             "NearClipPlane": 0.1F,
-            "FarClipPlane": 100F,
+            "FarClipPlane": 1000F,
             "Depth": -1,
             "Pipeline": NULL,
             "Target": NULL,
@@ -186,13 +198,13 @@
             "_identifier": "63106b67-b1e5-4ffd-ad83-bfebbc6b3469",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewCamera"
           },
           {
-            "$id": 12,
+            "$id": 15,
             "$type": "CameraController, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "EnableMovement": false,
             "Sensitivity": 0.15F,
@@ -201,7 +213,7 @@
             "_identifier": "92b47928-4288-4a1f-981c-d6eb52e40094",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewCameraController"
@@ -212,7 +224,7 @@
         ]
       },
       {
-        "$id": 13,
+        "$id": 16,
         "Name": "Cube",
         "AssetPath": "",
         "Identifier": "50fe5b02-ae0a-4914-be3f-eb52c540dbe1",
@@ -223,7 +235,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 14,
+          "$id": 17,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -244,16 +256,19 @@
         },
         "Components": [
           {
-            "$id": 15,
+            "$id": 18,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
+            "Materials": {
+              "$id": 19,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -264,13 +279,13 @@
             "_identifier": "5ca22913-592d-469c-9c69-0032f7a095c6",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 16,
+            "$id": 20,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -290,15 +305,15 @@
             "_identifier": "2f18d8dc-c8ca-466d-b04a-ae2b924e6501",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 17,
+            "$id": 21,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": false,
             "enableGyroscopicForces": false,
@@ -313,7 +328,7 @@
             "_identifier": "03302baa-f8d9-4ffa-bef8-9f32f0ad593d",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -324,81 +339,10 @@
         ]
       },
       {
-        "$id": 18,
+        "$id": 22,
         "Name": "World",
         "AssetPath": "",
         "Identifier": "813d144c-4159-4ebc-8c24-460c7e59d89f",
-        "Static": 0B,
-        "Enabled": 1B,
-        "EnabledInHierarchy": 1B,
-        "TagIndex": 0,
-        "LayerIndex": 0,
-        "HideFlags": 0,
-        "Transform": {
-          "$id": 19,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
-        },
-        "Components": [
-          {
-            "$id": 20,
-            "$type": "Voxels.World, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "player": {
-              "$id": 21,
-              "_localPosition": {
-                "X": 0F,
-                "Y": 124F,
-                "Z": 0F
-              },
-              "_localScale": {
-                "X": 1F,
-                "Y": 1F,
-                "Z": 1F
-              },
-              "_localRotation": {
-                "X": 0F,
-                "Y": 0F,
-                "Z": 0F,
-                "W": 1F
-              }
-            },
-            "material": {
-              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
-            },
-            "RenderDistance": 8,
-            "_identifier": "4a62e27b-aa96-4211-a677-92254d01e89e",
-            "_enabled": true,
-            "_enabledInHierarchy": true,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewWorld"
-          }
-        ],
-        "Children": [
-
-        ]
-      },
-      {
-        "$id": 22,
-        "Name": "Canvas",
-        "AssetPath": "",
-        "Identifier": "27181f6a-114f-429f-a32c-8b38c7f0a083",
         "Static": 0B,
         "Enabled": 1B,
         "EnabledInHierarchy": 1B,
@@ -428,76 +372,13 @@
         "Components": [
           {
             "$id": 24,
-            "$type": "Prowl.Vector.RectTransform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "_anchorMin": {
-              "X": 0.5F,
-              "Y": 0.5F
-            },
-            "_anchorMax": {
-              "X": 0.5F,
-              "Y": 0.5F
-            },
-            "_pivot": {
-              "X": 0.5F,
-              "Y": 0.5F
-            },
-            "_sizeDelta": {
-              "X": 100F,
-              "Y": 100F
-            },
-            "_anchoredPosition": {
-              "X": 0F,
-              "Y": 0F
-            },
-            "_identifier": "47a348d4-1df5-470b-802c-757a90fce924",
-            "_enabled": true,
-            "_enabledInHierarchy": true,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewRectTransform"
-          },
-          {
-            "$id": 25,
-            "$type": "Prowl.Runtime.GameCanvas, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "_renderMode": 0,
-            "_scaleFactor": 1F,
-            "_sortOrder": 0,
-            "_uiScaleMode": 0,
-            "_referenceResolution": {
-              "X": 1280F,
-              "Y": 720F
-            },
-            "_matchWidthOrHeight": 0.5F,
-            "_screenMatchMode": 0,
-            "_identifier": "849af800-0a7c-4ca2-ad73-66af05b7f77b",
-            "_enabled": true,
-            "_enabledInHierarchy": true,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewGameCanvas"
-          }
-        ],
-        "Children": [
-          {
-            "$id": 26,
-            "Name": "Text",
-            "AssetPath": "",
-            "Identifier": "23a17e55-ca70-4e54-9db3-5f6e6e36b173",
-            "Static": 0B,
-            "Enabled": 1B,
-            "EnabledInHierarchy": 1B,
-            "TagIndex": 0,
-            "LayerIndex": 0,
-            "HideFlags": 0,
-            "Transform": {
-              "$id": 27,
-              "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "Voxels.World, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "player": {
+              "$id": 25,
               "_localPosition": {
-                "X": 0F,
-                "Y": 0F,
-                "Z": 0F
+                "X": -0.8685093F,
+                "Y": 124F,
+                "Z": -1.1636734F
               },
               "_localScale": {
                 "X": 1F,
@@ -511,122 +392,17 @@
                 "W": 1F
               }
             },
-            "Components": [
-              {
-                "$id": 28,
-                "$type": "Prowl.Vector.RectTransform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "_anchorMin": {
-                  "X": 0.5F,
-                  "Y": 0.5F
-                },
-                "_anchorMax": {
-                  "X": 0.5F,
-                  "Y": 0.5F
-                },
-                "_pivot": {
-                  "X": 0.5F,
-                  "Y": 0.5F
-                },
-                "_sizeDelta": {
-                  "X": 200F,
-                  "Y": 50F
-                },
-                "_anchoredPosition": {
-                  "X": 0F,
-                  "Y": 0F
-                },
-                "_identifier": "002579cb-c8c0-4771-a13c-bb18a5ed36f3",
-                "_enabled": true,
-                "_enabledInHierarchy": true,
-                "HideFlags": 0,
-                "AssetPath": "",
-                "AssetID": "00000000-0000-0000-0000-000000000000",
-                "Name": "NewRectTransform"
-              },
-              {
-                "$id": 29,
-                "$type": "Prowl.Runtime.TextComponent, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "_font": {
-                  "AssetID": "00000000-0000-0000-0000-000000000000"
-                },
-                "_textColor": {
-                  "R": 1F,
-                  "G": 1F,
-                  "B": 1F,
-                  "A": 1F
-                },
-                "_text": "New Text",
-                "_alignment": 48,
-                "_size": 100,
-                "_quality": 32,
-                "_richText": false,
-                "_material": {
-                  "AssetID": "00000000-0000-0000-0000-000000000000"
-                },
-                "_identifier": "ab6fb9b5-90d7-4393-b426-b1be933218d4",
-                "_enabled": true,
-                "_enabledInHierarchy": true,
-                "HideFlags": 0,
-                "AssetPath": "",
-                "AssetID": "00000000-0000-0000-0000-000000000000",
-                "Name": "NewTextComponent"
-              }
-            ],
-            "Children": [
-
-            ]
-          }
-        ]
-      },
-      {
-        "$id": 26
-      },
-      {
-        "$id": 30,
-        "Name": "Event System",
-        "AssetPath": "",
-        "Identifier": "d207af66-ab52-4cd4-8bd7-a286f997ac0d",
-        "Static": 0B,
-        "Enabled": 1B,
-        "EnabledInHierarchy": 1B,
-        "TagIndex": 0,
-        "LayerIndex": 0,
-        "HideFlags": 0,
-        "Transform": {
-          "$id": 31,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
-        },
-        "Components": [
-          {
-            "$id": 32,
-            "$type": "Prowl.Runtime.UI.EventSystem, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "_dragThreshold": 4F,
-            "_multiClickWindow": 0.4F,
-            "_submitKey": 257,
-            "_cancelKey": 256,
-            "_identifier": "84ad6217-9e24-43ba-a1a5-8be1b871b3d3",
+            "material": {
+              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
+            },
+            "RenderDistance": 6,
+            "_identifier": "4a62e27b-aa96-4211-a677-92254d01e89e",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewEventSystem"
+            "Name": "NewWorld"
           }
         ],
         "Children": [
@@ -634,7 +410,7 @@
         ]
       },
       {
-        "$id": 33,
+        "$id": 26,
         "Name": "Cube (1)",
         "AssetPath": "",
         "Identifier": "8ff4eabb-9951-4035-98e1-d3ac250c7b87",
@@ -645,7 +421,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 34,
+          "$id": 27,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -666,16 +442,19 @@
         },
         "Components": [
           {
-            "$id": 35,
+            "$id": 28,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
+            "Materials": {
+              "$id": 29,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -686,7 +465,122 @@
             "_identifier": "647adfb1-33e0-455f-b266-98dce8927c53",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewMeshRenderer"
+          },
+          {
+            "$id": 30,
+            "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "size": {
+              "X": 1F,
+              "Y": 1F,
+              "Z": 1F
+            },
+            "Center": {
+              "X": 0F,
+              "Y": 0F,
+              "Z": 0F
+            },
+            "Rotation": {
+              "X": 0F,
+              "Y": 0F,
+              "Z": 0F
+            },
+            "_identifier": "d2b92ef9-7b9f-4df2-b1f5-fc78cda7bdcc",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewBoxCollider"
+          },
+          {
+            "$id": 31,
+            "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "motionType": 0L,
+            "isSpeculative": false,
+            "useGravity": true,
+            "enableGyroscopicForces": false,
+            "mass": 1F,
+            "linearDamping": 0F,
+            "angularDamping": 0F,
+            "friction": 0.2F,
+            "restitution": 0F,
+            "deactivationTime": 1F,
+            "linearSleepThreshold": 0.1F,
+            "angularSleepThreshold": 0.1F,
+            "_identifier": "06ef072a-b200-4f85-844d-9fce4c0b665d",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewRigidbody3D"
+          }
+        ],
+        "Children": [
+
+        ]
+      },
+      {
+        "$id": 32,
+        "Name": "Cube (2)",
+        "AssetPath": "",
+        "Identifier": "0f082654-d91d-40f1-9f1f-54a3d3ab512b",
+        "Static": 0B,
+        "Enabled": 1B,
+        "EnabledInHierarchy": 1B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 33,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 2.3499932F,
+            "Y": 37.981575F,
+            "Z": 4.201731F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F,
+            "W": 1F
+          }
+        },
+        "Components": [
+          {
+            "$id": 34,
+            "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "Mesh": {
+              "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
+            },
+            "Materials": {
+              "$id": 35,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
+            "LightmapIndex": -1,
+            "LightmapScaleOffset": {
+              "X": 1F,
+              "Y": 1F,
+              "Z": 0F,
+              "W": 0F
+            },
+            "_identifier": "f87fd83c-fd48-4fe0-bbb4-d445c1f2f6d5",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
@@ -709,10 +603,10 @@
               "Y": 0F,
               "Z": 0F
             },
-            "_identifier": "d2b92ef9-7b9f-4df2-b1f5-fc78cda7bdcc",
+            "_identifier": "ca3f8e59-72da-4203-935f-4187d214cdb1",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
@@ -720,7 +614,7 @@
           {
             "$id": 37,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": true,
             "enableGyroscopicForces": false,
@@ -732,10 +626,10 @@
             "deactivationTime": 1F,
             "linearSleepThreshold": 0.1F,
             "angularSleepThreshold": 0.1F,
-            "_identifier": "06ef072a-b200-4f85-844d-9fce4c0b665d",
+            "_identifier": "3dea24b1-7fa2-4ed0-86eb-d8b45a026d5b",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -747,9 +641,9 @@
       },
       {
         "$id": 38,
-        "Name": "Cube (2)",
+        "Name": "Cube (3)",
         "AssetPath": "",
-        "Identifier": "0f082654-d91d-40f1-9f1f-54a3d3ab512b",
+        "Identifier": "594a5ad5-5b37-4fce-b902-2ac239933d64",
         "Static": 0B,
         "Enabled": 1B,
         "EnabledInHierarchy": 1B,
@@ -783,123 +677,14 @@
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
-            "LightmapIndex": -1,
-            "LightmapScaleOffset": {
-              "X": 1F,
-              "Y": 1F,
-              "Z": 0F,
-              "W": 0F
+            "Materials": {
+              "$id": 41,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
             },
-            "_identifier": "f87fd83c-fd48-4fe0-bbb4-d445c1f2f6d5",
-            "_enabled": true,
-            "_enabledInHierarchy": true,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewMeshRenderer"
-          },
-          {
-            "$id": 41,
-            "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "size": {
-              "X": 1F,
-              "Y": 1F,
-              "Z": 1F
-            },
-            "Center": {
-              "X": 0F,
-              "Y": 0F,
-              "Z": 0F
-            },
-            "Rotation": {
-              "X": 0F,
-              "Y": 0F,
-              "Z": 0F
-            },
-            "_identifier": "ca3f8e59-72da-4203-935f-4187d214cdb1",
-            "_enabled": true,
-            "_enabledInHierarchy": true,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewBoxCollider"
-          },
-          {
-            "$id": 42,
-            "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
-            "isSpeculative": false,
-            "useGravity": true,
-            "enableGyroscopicForces": false,
-            "mass": 1F,
-            "linearDamping": 0F,
-            "angularDamping": 0F,
-            "friction": 0.2F,
-            "restitution": 0F,
-            "deactivationTime": 1F,
-            "linearSleepThreshold": 0.1F,
-            "angularSleepThreshold": 0.1F,
-            "_identifier": "3dea24b1-7fa2-4ed0-86eb-d8b45a026d5b",
-            "_enabled": true,
-            "_enabledInHierarchy": true,
-            "HideFlags": 0,
-            "AssetPath": "",
-            "AssetID": "00000000-0000-0000-0000-000000000000",
-            "Name": "NewRigidbody3D"
-          }
-        ],
-        "Children": [
-
-        ]
-      },
-      {
-        "$id": 43,
-        "Name": "Cube (3)",
-        "AssetPath": "",
-        "Identifier": "594a5ad5-5b37-4fce-b902-2ac239933d64",
-        "Static": 0B,
-        "Enabled": 1B,
-        "EnabledInHierarchy": 1B,
-        "TagIndex": 0,
-        "LayerIndex": 0,
-        "HideFlags": 0,
-        "Transform": {
-          "$id": 44,
-          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "_localPosition": {
-            "X": 2.3499932F,
-            "Y": 37.981575F,
-            "Z": 4.201731F
-          },
-          "_localScale": {
-            "X": 1F,
-            "Y": 1F,
-            "Z": 1F
-          },
-          "_localRotation": {
-            "X": 0F,
-            "Y": 0F,
-            "Z": 0F,
-            "W": 1F
-          }
-        },
-        "Components": [
-          {
-            "$id": 45,
-            "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "Mesh": {
-              "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
-            },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -910,13 +695,13 @@
             "_identifier": "a6356cdf-6c50-431e-9fb1-a6feab516a66",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 46,
+            "$id": 42,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -936,15 +721,15 @@
             "_identifier": "b369559c-9c3a-4a7f-9690-8484814b0538",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 47,
+            "$id": 43,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": true,
             "enableGyroscopicForces": false,
@@ -959,7 +744,7 @@
             "_identifier": "d6b131fc-3e53-400e-898e-77ee0304e019",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -970,7 +755,7 @@
         ]
       },
       {
-        "$id": 48,
+        "$id": 44,
         "Name": "Cube (4)",
         "AssetPath": "",
         "Identifier": "1cfedd45-f522-454d-9375-6dca0b237f06",
@@ -981,7 +766,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 49,
+          "$id": 45,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1002,16 +787,19 @@
         },
         "Components": [
           {
-            "$id": 50,
+            "$id": 46,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
+            "Materials": {
+              "$id": 47,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -1022,13 +810,13 @@
             "_identifier": "b97f7dd1-1c2e-422d-b593-4bd1b2cbb186",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 51,
+            "$id": 48,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1048,15 +836,15 @@
             "_identifier": "73ae7310-1a99-4a9b-a3bd-a06f584c83c8",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 52,
+            "$id": 49,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": true,
             "enableGyroscopicForces": false,
@@ -1071,7 +859,7 @@
             "_identifier": "b71fb84f-ff7d-4483-b903-f751084494d7",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -1082,7 +870,7 @@
         ]
       },
       {
-        "$id": 53,
+        "$id": 50,
         "Name": "Cube (5)",
         "AssetPath": "",
         "Identifier": "6ecc0fbc-ca39-4932-af3e-63e2601beb6b",
@@ -1093,7 +881,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 54,
+          "$id": 51,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1114,16 +902,19 @@
         },
         "Components": [
           {
-            "$id": 55,
+            "$id": 52,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
+            "Materials": {
+              "$id": 53,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -1134,13 +925,13 @@
             "_identifier": "1e14c694-eaf4-4631-ac0e-a150e5a70bed",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 56,
+            "$id": 54,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1160,15 +951,15 @@
             "_identifier": "ce700c38-b23c-46d8-9787-af9d983dc759",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 57,
+            "$id": 55,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": true,
             "enableGyroscopicForces": false,
@@ -1183,7 +974,7 @@
             "_identifier": "84c6e6c2-e43d-4fd0-8feb-a08f1b9b1468",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -1194,7 +985,7 @@
         ]
       },
       {
-        "$id": 58,
+        "$id": 56,
         "Name": "Cube (6)",
         "AssetPath": "",
         "Identifier": "7e2bf75d-75b6-43f5-87d1-c4cf6eaf7e70",
@@ -1205,7 +996,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 59,
+          "$id": 57,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1226,16 +1017,19 @@
         },
         "Components": [
           {
-            "$id": 60,
+            "$id": 58,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
+            "Materials": {
+              "$id": 59,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -1246,13 +1040,13 @@
             "_identifier": "402ad627-aea7-43fd-8cae-7e8607680ca3",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 61,
+            "$id": 60,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1272,15 +1066,15 @@
             "_identifier": "1054e621-f750-40f1-b1ac-7e8d8fe4ca5b",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 62,
+            "$id": 61,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": true,
             "enableGyroscopicForces": false,
@@ -1295,7 +1089,7 @@
             "_identifier": "cf5d460f-435c-4830-a322-365d8c5d6699",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -1306,7 +1100,7 @@
         ]
       },
       {
-        "$id": 63,
+        "$id": 62,
         "Name": "Cube (7)",
         "AssetPath": "",
         "Identifier": "59b362f0-50db-4852-9103-484856ffd0f9",
@@ -1317,7 +1111,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 64,
+          "$id": 63,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1338,16 +1132,19 @@
         },
         "Components": [
           {
-            "$id": 65,
+            "$id": 64,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
+            "Materials": {
+              "$id": 65,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -1358,7 +1155,7 @@
             "_identifier": "853a12e7-3c83-4bba-8768-1dfd724019c9",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
@@ -1384,7 +1181,7 @@
             "_identifier": "2ada8d8e-3244-47c3-ba31-8a6d8412e56f",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
@@ -1392,7 +1189,7 @@
           {
             "$id": 67,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": true,
             "enableGyroscopicForces": false,
@@ -1407,7 +1204,7 @@
             "_identifier": "9e46773b-3be8-43fe-b538-4a39ea0a0d9b",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -1455,11 +1252,14 @@
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
+            "Materials": {
+              "$id": 71,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -1470,13 +1270,13 @@
             "_identifier": "8ff7bae5-e97f-40aa-a76a-5f32f021dd49",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 71,
+            "$id": 72,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1496,15 +1296,15 @@
             "_identifier": "dd32488f-a927-4e19-96c2-83e5dbd16820",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 72,
+            "$id": 73,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": true,
             "enableGyroscopicForces": false,
@@ -1519,7 +1319,7 @@
             "_identifier": "b8b428fe-04a6-4e4b-9ac1-866c26077acb",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -1530,7 +1330,7 @@
         ]
       },
       {
-        "$id": 73,
+        "$id": 74,
         "Name": "Cube (9)",
         "AssetPath": "",
         "Identifier": "f92b1875-4d8f-43b1-a15c-da816719c821",
@@ -1541,7 +1341,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 74,
+          "$id": 75,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1562,16 +1362,19 @@
         },
         "Components": [
           {
-            "$id": 75,
+            "$id": 76,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
-            "Materials": [
-              {
-                "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-              }
-            ],
+            "Materials": {
+              "$id": 77,
+              "$values": [
+                {
+                  "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                }
+              ]
+            },
             "LightmapIndex": -1,
             "LightmapScaleOffset": {
               "X": 1F,
@@ -1582,13 +1385,13 @@
             "_identifier": "d5f1709b-1e0f-491a-848d-f55cd49ac156",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 76,
+            "$id": 78,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1608,15 +1411,15 @@
             "_identifier": "86ee1c21-ebc2-49ee-9791-bdabd4ba302f",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 77,
+            "$id": 79,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-            "motionType": 0,
+            "motionType": 0L,
             "isSpeculative": false,
             "useGravity": true,
             "enableGyroscopicForces": false,
@@ -1631,7 +1434,7 @@
             "_identifier": "3f22adf3-7393-4f6b-9515-ef26558bdd43",
             "_enabled": true,
             "_enabledInHierarchy": true,
-            "HideFlags": 0,
+            "HideFlags": 0L,
             "AssetPath": "",
             "AssetID": "00000000-0000-0000-0000-000000000000",
             "Name": "NewRigidbody3D"
@@ -1642,7 +1445,7 @@
         ]
       },
       {
-        "$id": 78,
+        "$id": 80,
         "Name": "Level",
         "AssetPath": "",
         "Identifier": "6aa96519-80c7-413b-8a86-70fcab1c23da",
@@ -1653,7 +1456,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 79,
+          "$id": 81,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1677,7 +1480,7 @@
         ],
         "Children": [
           {
-            "$id": 80,
+            "$id": 82,
             "Name": "Cubes",
             "AssetPath": "",
             "Identifier": "4aca0dd8-2818-4e30-a661-858627bd2465",
@@ -1688,7 +1491,7 @@
             "LayerIndex": 0,
             "HideFlags": 0,
             "Transform": {
-              "$id": 81,
+              "$id": 83,
               "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
               "_localPosition": {
                 "X": 0F,
@@ -1712,59 +1515,50 @@
             ],
             "Children": [
               {
-                "$id": 33
+                "$id": 26
+              },
+              {
+                "$id": 32
               },
               {
                 "$id": 38
               },
               {
-                "$id": 43
+                "$id": 44
               },
               {
-                "$id": 48
+                "$id": 50
               },
               {
-                "$id": 53
+                "$id": 56
               },
               {
-                "$id": 58
-              },
-              {
-                "$id": 63
+                "$id": 62
               },
               {
                 "$id": 68
               },
               {
-                "$id": 73
+                "$id": 74
               },
               {
-                "$id": 13
+                "$id": 16
               }
             ]
-          },
-          {
-            "$id": 18
           },
           {
             "$id": 22
           },
           {
-            "$id": 30
-          },
-          {
-            "$id": 5
-          },
-          {
-            "$id": 2
+            "$id": 6
           }
         ]
       },
       {
-        "$id": 80
+        "$id": 82
       },
       {
-        "$id": 82,
+        "$id": 84,
         "Name": "Character",
         "AssetPath": "",
         "Identifier": "ecef5cdb-0c9e-44df-b50c-30372fd444cb",
@@ -1775,7 +1569,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 83,
+          "$id": 85,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1799,7 +1593,7 @@
         ],
         "Children": [
           {
-            "$id": 84,
+            "$id": 86,
             "Name": "CharacterController",
             "AssetPath": "",
             "Identifier": "f0d3f933-e147-48ef-8019-b77327cafdce",
@@ -1810,14 +1604,14 @@
             "LayerIndex": 0,
             "HideFlags": 0,
             "Transform": {
-              "$id": 21,
+              "$id": 25,
               "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Components": [
               {
-                "$id": 85,
+                "$id": 87,
                 "$type": "Prowl.Runtime.CharacterController, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                "Shape": 1,
+                "Shape": 1L,
                 "Radius": 0.5F,
                 "Height": 1.8F,
                 "SkinWidth": 0.02F,
@@ -1827,24 +1621,24 @@
                 "_identifier": "e63a82cc-3eca-427e-8545-b1b054b9b99b",
                 "_enabled": true,
                 "_enabledInHierarchy": true,
-                "HideFlags": 0,
+                "HideFlags": 0L,
                 "AssetPath": "",
                 "AssetID": "00000000-0000-0000-0000-000000000000",
                 "Name": "NewCharacterController"
               },
               {
-                "$id": 86,
+                "$id": 88,
                 "$type": "CharacterInput, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "LookDirection": {
-                  "$id": 9
+                  "$id": 10
                 },
-                "MoveSpeed": 6F,
-                "JumpSpeed": 8F,
-                "Gravity": -20F,
+                "MoveSpeed": 20F,
+                "JumpSpeed": 10F,
+                "Gravity": -5F,
                 "_identifier": "815c8a2c-a266-47ee-a255-ce4efe609970",
                 "_enabled": true,
                 "_enabledInHierarchy": true,
-                "HideFlags": 0,
+                "HideFlags": 0L,
                 "AssetPath": "",
                 "AssetID": "00000000-0000-0000-0000-000000000000",
                 "Name": "NewCharacterInput"
@@ -1852,7 +1646,7 @@
             ],
             "Children": [
               {
-                "$id": 87,
+                "$id": 89,
                 "Name": "Cylinder",
                 "AssetPath": "",
                 "Identifier": "248f894a-8ee2-4481-b19a-33d7142702fc",
@@ -1863,7 +1657,7 @@
                 "LayerIndex": 0,
                 "HideFlags": 0,
                 "Transform": {
-                  "$id": 88,
+                  "$id": 90,
                   "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "_localPosition": {
                     "X": 0F,
@@ -1884,16 +1678,19 @@
                 },
                 "Components": [
                   {
-                    "$id": 89,
+                    "$id": 91,
                     "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                     "Mesh": {
                       "AssetID": "52ede889-21f7-9a53-83cc-e787a84b2974"
                     },
-                    "Materials": [
-                      {
-                        "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
-                      }
-                    ],
+                    "Materials": {
+                      "$id": 92,
+                      "$values": [
+                        {
+                          "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
+                        }
+                      ]
+                    },
                     "LightmapIndex": -1,
                     "LightmapScaleOffset": {
                       "X": 1F,
@@ -1904,7 +1701,7 @@
                     "_identifier": "a1d3b5c1-f002-4cfe-8f51-7518c35fce5a",
                     "_enabled": true,
                     "_enabledInHierarchy": true,
-                    "HideFlags": 0,
+                    "HideFlags": 0L,
                     "AssetPath": "",
                     "AssetID": "00000000-0000-0000-0000-000000000000",
                     "Name": "NewMeshRenderer"
@@ -1915,30 +1712,232 @@
                 ]
               },
               {
-                "$id": 8
+                "$id": 9
               }
             ]
           }
         ]
       },
       {
-        "$id": 84
+        "$id": 86
       },
       {
-        "$id": 87
+        "$id": 89
+      },
+      {
+        "$id": 93,
+        "Name": "Quad",
+        "AssetPath": "",
+        "Identifier": "a358cd91-9de4-4e27-8b64-d5792403c180",
+        "Static": 0B,
+        "Enabled": 0B,
+        "EnabledInHierarchy": 0B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 94,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F,
+            "W": 1F
+          }
+        },
+        "Components": [
+          {
+            "$id": 95,
+            "$type": "SimpleQuad, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "material": {
+              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
+            },
+            "_identifier": "421400ea-4e21-4643-bdc7-27119cb275e8",
+            "_enabled": true,
+            "_enabledInHierarchy": false,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewSimpleQuad"
+          }
+        ],
+        "Children": [
+
+        ]
+      },
+      {
+        "$id": 96,
+        "Name": "Cube",
+        "AssetPath": "",
+        "Identifier": "633e2afd-b219-4996-be7b-30e4cac45b65",
+        "Static": 0B,
+        "Enabled": 0B,
+        "EnabledInHierarchy": 0B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 97,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F,
+            "W": 1F
+          }
+        },
+        "Components": [
+          {
+            "$id": 98,
+            "$type": "Cube, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "material": {
+              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
+            },
+            "_identifier": "e307c513-63eb-4bd2-82f3-f69d30599f7e",
+            "_enabled": true,
+            "_enabledInHierarchy": false,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewCube"
+          }
+        ],
+        "Children": [
+
+        ]
+      },
+      {
+        "$id": 99,
+        "Name": "Chunk",
+        "AssetPath": "",
+        "Identifier": "e36bc7c9-62f6-4c31-a173-0cbed6ec7024",
+        "Static": 0B,
+        "Enabled": 0B,
+        "EnabledInHierarchy": 0B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 100,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F,
+            "W": 1F
+          }
+        },
+        "Components": [
+          {
+            "$id": 101,
+            "$type": "Chunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "material": {
+              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
+            },
+            "_identifier": "80896b52-45d3-4f66-9042-82e3383e91f3",
+            "_enabled": true,
+            "_enabledInHierarchy": false,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewChunk"
+          }
+        ],
+        "Children": [
+
+        ]
+      },
+      {
+        "$id": 102,
+        "Name": "OptimizedChunk",
+        "AssetPath": "",
+        "Identifier": "5650ad55-9efb-44d1-b961-0bbd875c787c",
+        "Static": 0B,
+        "Enabled": 0B,
+        "EnabledInHierarchy": 0B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 103,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F,
+            "W": 1F
+          }
+        },
+        "Components": [
+          {
+            "$id": 104,
+            "$type": "Voxels.OptimizedChunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "material": {
+              "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
+            },
+            "_identifier": "69aef9ef-8d02-42bb-beb3-10b088d71ebf",
+            "_enabled": true,
+            "_enabledInHierarchy": false,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewOptimizedChunk"
+          }
+        ],
+        "Children": [
+
+        ]
       }
     ]
   },
   "_goIdentifiers": {
+    "$id": 105,
     "array": [
       "ef8c3d12-93f2-4f2c-9232-1bc52ae9757d",
       "59368f36-a807-4d04-a31f-ac32f0637903",
       "b007053b-770b-4986-9312-0aab857671ce",
       "50fe5b02-ae0a-4914-be3f-eb52c540dbe1",
       "813d144c-4159-4ebc-8c24-460c7e59d89f",
-      "27181f6a-114f-429f-a32c-8b38c7f0a083",
-      "23a17e55-ca70-4e54-9db3-5f6e6e36b173",
-      "d207af66-ab52-4cd4-8bd7-a286f997ac0d",
       "8ff4eabb-9951-4035-98e1-d3ac250c7b87",
       "0f082654-d91d-40f1-9f1f-54a3d3ab512b",
       "594a5ad5-5b37-4fce-b902-2ac239933d64",
@@ -1952,10 +1951,15 @@
       "4aca0dd8-2818-4e30-a661-858627bd2465",
       "ecef5cdb-0c9e-44df-b50c-30372fd444cb",
       "f0d3f933-e147-48ef-8019-b77327cafdce",
-      "248f894a-8ee2-4481-b19a-33d7142702fc"
+      "248f894a-8ee2-4481-b19a-33d7142702fc",
+      "a358cd91-9de4-4e27-8b64-d5792403c180",
+      "633e2afd-b219-4996-be7b-30e4cac45b65",
+      "e36bc7c9-62f6-4c31-a173-0cbed6ec7024",
+      "5650ad55-9efb-44d1-b961-0bbd875c787c"
     ]
   },
   "_compIdentifiers": {
+    "$id": 106,
     "array": [
       "bbc0ed1c-c7f6-4845-b774-81a1cdff3ed7",
       "a773bc5a-4a93-4924-b429-017cf8d57dcd",
@@ -1965,11 +1969,6 @@
       "2f18d8dc-c8ca-466d-b04a-ae2b924e6501",
       "03302baa-f8d9-4ffa-bef8-9f32f0ad593d",
       "4a62e27b-aa96-4211-a677-92254d01e89e",
-      "47a348d4-1df5-470b-802c-757a90fce924",
-      "849af800-0a7c-4ca2-ad73-66af05b7f77b",
-      "002579cb-c8c0-4771-a13c-bb18a5ed36f3",
-      "ab6fb9b5-90d7-4393-b426-b1be933218d4",
-      "84ad6217-9e24-43ba-a1a5-8be1b871b3d3",
       "647adfb1-33e0-455f-b266-98dce8927c53",
       "d2b92ef9-7b9f-4df2-b1f5-fc78cda7bdcc",
       "06ef072a-b200-4f85-844d-9fce4c0b665d",
@@ -1999,10 +1998,15 @@
       "3f22adf3-7393-4f6b-9515-ef26558bdd43",
       "e63a82cc-3eca-427e-8545-b1b054b9b99b",
       "815c8a2c-a266-47ee-a255-ce4efe609970",
-      "a1d3b5c1-f002-4cfe-8f51-7518c35fce5a"
+      "a1d3b5c1-f002-4cfe-8f51-7518c35fce5a",
+      "421400ea-4e21-4643-bdc7-27119cb275e8",
+      "e307c513-63eb-4bd2-82f3-f69d30599f7e",
+      "80896b52-45d3-4f66-9042-82e3383e91f3",
+      "69aef9ef-8d02-42bb-beb3-10b088d71ebf"
     ]
   },
   "_compIdOffsets": {
+    "$id": 107,
     "array": [
       0,
       1,
@@ -2010,27 +2014,28 @@
       4,
       7,
       8,
-      10,
-      12,
-      13,
-      16,
-      19,
-      22,
-      25,
-      28,
-      31,
-      34,
+      11,
+      14,
+      17,
+      20,
+      23,
+      26,
+      29,
+      32,
+      35,
+      35,
+      35,
+      35,
       37,
+      38,
+      39,
       40,
-      40,
-      40,
-      40,
-      42,
-      43
+      41,
+      42
     ]
   },
   "Fog": {
-    "Mode": 3,
+    "Mode": 0L,
     "Color": {
       "R": 0.5F,
       "G": 0.5F,
@@ -2039,10 +2044,10 @@
     },
     "Start": 20F,
     "End": 100F,
-    "Density": 0.01F
+    "Density": 0F
   },
   "Ambient": {
-    "Mode": 0,
+    "Mode": 0L,
     "Strength": 1F,
     "Color": {
       "X": 0.43F,
@@ -2064,7 +2069,7 @@
     }
   },
   "Skybox": {
-    "Mode": 0,
+    "Mode": 0L,
     "SolidColor": {
       "R": 0.2F,
       "G": 0.3F,
@@ -2089,33 +2094,40 @@
     }
   },
   "BakedLighting": {
-    "$id": 90,
-    "Lightmaps": [
+    "$id": 108,
+    "Lightmaps": {
+      "$id": 109,
+      "$values": [
 
-    ],
+      ]
+    },
     "ProbePositions": {
+      "$id": 110,
       "array": [
 
       ]
     },
     "ProbeSH": {
+      "$id": 111,
       "array": [
 
       ]
     },
     "ProbeTetrahedra": {
+      "$id": 112,
       "array": [
 
       ]
     },
     "ProbeTetNeighbours": {
+      "$id": 113,
       "array": [
 
       ]
     }
   },
   "LightmapBake": {
-    "$id": 91,
+    "$id": 114,
     "AtlasSize": 1024,
     "TexelsPerUnit": 20F,
     "DilatePixels": 2,
