@@ -76,7 +76,7 @@ public class World : MonoBehaviour
             firstRunIsLoaded = true;
         }
 
-        if (Transform.Position.Y < 50)
+        if (Transform.Position.Y < -50)
         {
             Transform.Position = initialPlayerPos;
         }

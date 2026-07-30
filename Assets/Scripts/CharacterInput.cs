@@ -39,7 +39,7 @@ public class CharacterInput : MonoBehaviour
             _velocity.Z = planar.Z * MoveSpeed;
         }
 
-        if (_controller.IsGrounded)
+        if (_controller.IsGrounded && _velocity.Y <= 0f)
         {
             _velocity.Y = 0f;
             if (Input.GetKeyDown(KeyCode.Space))

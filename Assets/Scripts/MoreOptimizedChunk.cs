@@ -52,6 +52,26 @@ public class MoreOptimizedChunk : MonoBehaviour
         meshRenderer.Material = material;
     }
 
+    public void RaycastUpdateBlock(Ray ray, byte voxel)
+    {
+        if (mesh.Raycast(ray, out var distance, out var normal))
+        {   
+            var pos = ray.Origin + Float3.Normalize(ray.Direction) * distance;
+            var index = Maths.FloorToInt(pos - (normal * 0.5f));
+            if (IsInsideBounds(index.X, index.Y, index.Z)) 
+            {
+                Debug.Log("IsInside bounds");
+                voxels[index.X, index.Y, index.Z] = voxel;
+                CalcMesh();
+                boxelCollider?.Set(colliderShapes.ToArray());
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException($"Voxel position ({index.X}, {index.Y}, {index.Z}) is outside chunk bounds.");
+            }
+        }
+    }
+
     public void UpdateBlock(int x, int y, int z, byte voxel)
     {
         if (IsInsideBounds(x, y, z)) 

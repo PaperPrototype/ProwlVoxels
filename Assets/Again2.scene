@@ -102,7 +102,7 @@
         "Components": [
           {
             "$id": 8,
-            "$type": "Voxels.OptimizedChunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "Voxels.OptimizedChunk, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
@@ -205,7 +205,7 @@
           },
           {
             "$id": 15,
-            "$type": "CameraController, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "CameraController, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "EnableMovement": false,
             "Sensitivity": 0.15F,
             "MinPitch": -89F,
@@ -373,7 +373,7 @@
         "Components": [
           {
             "$id": 24,
-            "$type": "Voxels.World, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "Voxels.World, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "player": {
               "$id": 25,
               "_localPosition": {
@@ -396,7 +396,7 @@
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
-            "RenderDistance": 6,
+            "RenderDistance": 2,
             "_identifier": "4a62e27b-aa96-4211-a677-92254d01e89e",
             "_enabled": true,
             "_enabledInHierarchy": true,
@@ -1629,7 +1629,7 @@
               },
               {
                 "$id": 88,
-                "$type": "CharacterInput, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                "$type": "CharacterInput, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "LookDirection": {
                   "$id": 10
                 },
@@ -1759,7 +1759,7 @@
         "Components": [
           {
             "$id": 95,
-            "$type": "SimpleQuad, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "SimpleQuad, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
@@ -1810,7 +1810,7 @@
         "Components": [
           {
             "$id": 98,
-            "$type": "Cube, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "Cube, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
@@ -1861,7 +1861,7 @@
         "Components": [
           {
             "$id": 101,
-            "$type": "Chunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "Chunk, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
@@ -1912,7 +1912,7 @@
         "Components": [
           {
             "$id": 104,
-            "$type": "Voxels.OptimizedChunk, VoxelPlanets.Game, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "$type": "Voxels.OptimizedChunk, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
