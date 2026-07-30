@@ -5,21 +5,24 @@
   "settings": {
     "generateMipmaps": true,
     "sRGB": true,
-    "minFilter": 0,
+    "minFilter": 4,
     "magFilter": 0,
     "wrapMode": 0,
     "sprite": {
       "$id": 1,
-      "Mode": 0,
+      "Mode": 0L,
       "PixelsPerUnit": 100F,
       "GenerateTightMesh": false,
       "TightMeshDetail": 1.5F,
       "TightMeshAlphaThreshold": 1B,
       "SecondaryTextures": {
+        "$id": 2,
+        "entries": [
 
+        ]
       },
-      "SlicingTool": 1,
-      "GeneratedPivot": 0,
+      "SlicingTool": 1L,
+      "GeneratedPivot": 0L,
       "GridCellSize": {
         "X": 16,
         "Y": 16
@@ -38,9 +41,12 @@
       },
       "KeepEmptyRects": false,
       "IsoIsAlternate": false,
-      "Slices": [
+      "Slices": {
+        "$id": 3,
+        "$values": [
 
-      ]
+        ]
+      }
     }
   }
 }

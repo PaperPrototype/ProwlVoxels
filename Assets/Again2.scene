@@ -159,14 +159,6 @@
               "$values": [
                 {
                   "$id": 13,
-                  "$type": "Prowl.Runtime.Rendering.FXAAEffect, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
-                  "EdgeThresholdMax": 0.0625F,
-                  "EdgeThresholdMin": 0.0312F,
-                  "SubpixelQuality": 0.75F,
-                  "Enabled": true
-                },
-                {
-                  "$id": 14,
                   "$type": "Prowl.Runtime.Rendering.TonemapperEffect, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "Type": 3L,
                   "Contrast": 1.1F,
@@ -204,7 +196,7 @@
             "Name": "NewCamera"
           },
           {
-            "$id": 15,
+            "$id": 14,
             "$type": "CameraController, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "EnableMovement": false,
             "Sensitivity": 0.15F,
@@ -225,7 +217,7 @@
         ]
       },
       {
-        "$id": 16,
+        "$id": 15,
         "Name": "Cube",
         "AssetPath": "",
         "Identifier": "50fe5b02-ae0a-4914-be3f-eb52c540dbe1",
@@ -236,7 +228,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 17,
+          "$id": 16,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -257,13 +249,13 @@
         },
         "Components": [
           {
-            "$id": 18,
+            "$id": 17,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 19,
+              "$id": 18,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -286,7 +278,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 20,
+            "$id": 19,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -312,7 +304,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 21,
+            "$id": 20,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -340,7 +332,7 @@
         ]
       },
       {
-        "$id": 22,
+        "$id": 21,
         "Name": "World",
         "AssetPath": "",
         "Identifier": "813d144c-4159-4ebc-8c24-460c7e59d89f",
@@ -351,7 +343,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 23,
+          "$id": 22,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -372,10 +364,10 @@
         },
         "Components": [
           {
-            "$id": 24,
+            "$id": 23,
             "$type": "Voxels.World, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "player": {
-              "$id": 25,
+              "$id": 24,
               "_localPosition": {
                 "X": -0.8685093F,
                 "Y": 124F,
@@ -411,7 +403,7 @@
         ]
       },
       {
-        "$id": 26,
+        "$id": 25,
         "Name": "Cube (1)",
         "AssetPath": "",
         "Identifier": "8ff4eabb-9951-4035-98e1-d3ac250c7b87",
@@ -422,7 +414,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 27,
+          "$id": 26,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -443,13 +435,13 @@
         },
         "Components": [
           {
-            "$id": 28,
+            "$id": 27,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 29,
+              "$id": 28,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -472,7 +464,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 30,
+            "$id": 29,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -498,7 +490,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 31,
+            "$id": 30,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -526,7 +518,7 @@
         ]
       },
       {
-        "$id": 32,
+        "$id": 31,
         "Name": "Cube (2)",
         "AssetPath": "",
         "Identifier": "0f082654-d91d-40f1-9f1f-54a3d3ab512b",
@@ -537,7 +529,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 33,
+          "$id": 32,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -558,13 +550,13 @@
         },
         "Components": [
           {
-            "$id": 34,
+            "$id": 33,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 35,
+              "$id": 34,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -587,7 +579,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 36,
+            "$id": 35,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -613,7 +605,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 37,
+            "$id": 36,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -641,7 +633,7 @@
         ]
       },
       {
-        "$id": 38,
+        "$id": 37,
         "Name": "Cube (3)",
         "AssetPath": "",
         "Identifier": "594a5ad5-5b37-4fce-b902-2ac239933d64",
@@ -652,7 +644,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 39,
+          "$id": 38,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -673,13 +665,13 @@
         },
         "Components": [
           {
-            "$id": 40,
+            "$id": 39,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 41,
+              "$id": 40,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -702,7 +694,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 42,
+            "$id": 41,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -728,7 +720,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 43,
+            "$id": 42,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -756,7 +748,7 @@
         ]
       },
       {
-        "$id": 44,
+        "$id": 43,
         "Name": "Cube (4)",
         "AssetPath": "",
         "Identifier": "1cfedd45-f522-454d-9375-6dca0b237f06",
@@ -767,7 +759,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 45,
+          "$id": 44,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -788,13 +780,13 @@
         },
         "Components": [
           {
-            "$id": 46,
+            "$id": 45,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 47,
+              "$id": 46,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -817,7 +809,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 48,
+            "$id": 47,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -843,7 +835,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 49,
+            "$id": 48,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -871,7 +863,7 @@
         ]
       },
       {
-        "$id": 50,
+        "$id": 49,
         "Name": "Cube (5)",
         "AssetPath": "",
         "Identifier": "6ecc0fbc-ca39-4932-af3e-63e2601beb6b",
@@ -882,7 +874,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 51,
+          "$id": 50,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -903,13 +895,13 @@
         },
         "Components": [
           {
-            "$id": 52,
+            "$id": 51,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 53,
+              "$id": 52,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -932,7 +924,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 54,
+            "$id": 53,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -958,7 +950,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 55,
+            "$id": 54,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -986,7 +978,7 @@
         ]
       },
       {
-        "$id": 56,
+        "$id": 55,
         "Name": "Cube (6)",
         "AssetPath": "",
         "Identifier": "7e2bf75d-75b6-43f5-87d1-c4cf6eaf7e70",
@@ -997,7 +989,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 57,
+          "$id": 56,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1018,13 +1010,13 @@
         },
         "Components": [
           {
-            "$id": 58,
+            "$id": 57,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 59,
+              "$id": 58,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -1047,7 +1039,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 60,
+            "$id": 59,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1073,7 +1065,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 61,
+            "$id": 60,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -1101,7 +1093,7 @@
         ]
       },
       {
-        "$id": 62,
+        "$id": 61,
         "Name": "Cube (7)",
         "AssetPath": "",
         "Identifier": "59b362f0-50db-4852-9103-484856ffd0f9",
@@ -1112,7 +1104,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 63,
+          "$id": 62,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1133,13 +1125,13 @@
         },
         "Components": [
           {
-            "$id": 64,
+            "$id": 63,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 65,
+              "$id": 64,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -1162,7 +1154,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 66,
+            "$id": 65,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1188,7 +1180,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 67,
+            "$id": 66,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -1216,7 +1208,7 @@
         ]
       },
       {
-        "$id": 68,
+        "$id": 67,
         "Name": "Cube (8)",
         "AssetPath": "",
         "Identifier": "79a6ea7f-6eba-4bbd-bd15-fddff2ed13e3",
@@ -1227,7 +1219,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 69,
+          "$id": 68,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1248,13 +1240,13 @@
         },
         "Components": [
           {
-            "$id": 70,
+            "$id": 69,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 71,
+              "$id": 70,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -1277,7 +1269,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 72,
+            "$id": 71,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1303,7 +1295,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 73,
+            "$id": 72,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -1331,7 +1323,7 @@
         ]
       },
       {
-        "$id": 74,
+        "$id": 73,
         "Name": "Cube (9)",
         "AssetPath": "",
         "Identifier": "f92b1875-4d8f-43b1-a15c-da816719c821",
@@ -1342,7 +1334,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 75,
+          "$id": 74,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 2.3499932F,
@@ -1363,13 +1355,13 @@
         },
         "Components": [
           {
-            "$id": 76,
+            "$id": 75,
             "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "Mesh": {
               "AssetID": "97e8b0a9-e054-0d51-9663-eb372d776c90"
             },
             "Materials": {
-              "$id": 77,
+              "$id": 76,
               "$values": [
                 {
                   "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -1392,7 +1384,7 @@
             "Name": "NewMeshRenderer"
           },
           {
-            "$id": 78,
+            "$id": 77,
             "$type": "Prowl.Runtime.BoxCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "size": {
               "X": 1F,
@@ -1418,7 +1410,7 @@
             "Name": "NewBoxCollider"
           },
           {
-            "$id": 79,
+            "$id": 78,
             "$type": "Prowl.Runtime.Rigidbody3D, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
             "motionType": 0L,
             "isSpeculative": false,
@@ -1446,7 +1438,7 @@
         ]
       },
       {
-        "$id": 80,
+        "$id": 79,
         "Name": "Level",
         "AssetPath": "",
         "Identifier": "6aa96519-80c7-413b-8a86-70fcab1c23da",
@@ -1457,7 +1449,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 81,
+          "$id": 80,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1481,7 +1473,7 @@
         ],
         "Children": [
           {
-            "$id": 82,
+            "$id": 81,
             "Name": "Cubes",
             "AssetPath": "",
             "Identifier": "4aca0dd8-2818-4e30-a661-858627bd2465",
@@ -1492,7 +1484,7 @@
             "LayerIndex": 0,
             "HideFlags": 0,
             "Transform": {
-              "$id": 83,
+              "$id": 82,
               "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
               "_localPosition": {
                 "X": 0F,
@@ -1516,39 +1508,39 @@
             ],
             "Children": [
               {
-                "$id": 26
+                "$id": 25
               },
               {
-                "$id": 32
+                "$id": 31
               },
               {
-                "$id": 38
+                "$id": 37
               },
               {
-                "$id": 44
+                "$id": 43
               },
               {
-                "$id": 50
+                "$id": 49
               },
               {
-                "$id": 56
+                "$id": 55
               },
               {
-                "$id": 62
+                "$id": 61
               },
               {
-                "$id": 68
+                "$id": 67
               },
               {
-                "$id": 74
+                "$id": 73
               },
               {
-                "$id": 16
+                "$id": 15
               }
             ]
           },
           {
-            "$id": 22
+            "$id": 21
           },
           {
             "$id": 6
@@ -1556,10 +1548,10 @@
         ]
       },
       {
-        "$id": 82
+        "$id": 81
       },
       {
-        "$id": 84,
+        "$id": 83,
         "Name": "Character",
         "AssetPath": "",
         "Identifier": "ecef5cdb-0c9e-44df-b50c-30372fd444cb",
@@ -1570,7 +1562,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 85,
+          "$id": 84,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1594,7 +1586,7 @@
         ],
         "Children": [
           {
-            "$id": 86,
+            "$id": 85,
             "Name": "CharacterController",
             "AssetPath": "",
             "Identifier": "f0d3f933-e147-48ef-8019-b77327cafdce",
@@ -1605,12 +1597,12 @@
             "LayerIndex": 0,
             "HideFlags": 0,
             "Transform": {
-              "$id": 25,
+              "$id": 24,
               "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
             },
             "Components": [
               {
-                "$id": 87,
+                "$id": 86,
                 "$type": "Prowl.Runtime.CharacterController, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "Shape": 1L,
                 "Radius": 0.5F,
@@ -1628,15 +1620,15 @@
                 "Name": "NewCharacterController"
               },
               {
-                "$id": 88,
+                "$id": 87,
                 "$type": "CharacterInput, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
                 "LookDirection": {
                   "$id": 10
                 },
-                "MoveSpeed": 20F,
-                "JumpSpeed": 10F,
-                "Gravity": -5F,
-                "_identifier": "815c8a2c-a266-47ee-a255-ce4efe609970",
+                "MoveSpeed": 6F,
+                "JumpSpeed": 8F,
+                "Gravity": -10F,
+                "_identifier": "2f5a5c37-c90e-48ef-a073-9861cee1b9b3",
                 "_enabled": true,
                 "_enabledInHierarchy": true,
                 "HideFlags": 0L,
@@ -1647,7 +1639,7 @@
             ],
             "Children": [
               {
-                "$id": 89,
+                "$id": 88,
                 "Name": "Cylinder",
                 "AssetPath": "",
                 "Identifier": "248f894a-8ee2-4481-b19a-33d7142702fc",
@@ -1658,7 +1650,7 @@
                 "LayerIndex": 0,
                 "HideFlags": 0,
                 "Transform": {
-                  "$id": 90,
+                  "$id": 89,
                   "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                   "_localPosition": {
                     "X": 0F,
@@ -1679,13 +1671,13 @@
                 },
                 "Components": [
                   {
-                    "$id": 91,
+                    "$id": 90,
                     "$type": "Prowl.Runtime.MeshRenderer, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
                     "Mesh": {
                       "AssetID": "52ede889-21f7-9a53-83cc-e787a84b2974"
                     },
                     "Materials": {
-                      "$id": 92,
+                      "$id": 91,
                       "$values": [
                         {
                           "AssetID": "d7009b28-9353-6559-8847-62e877cec576"
@@ -1720,13 +1712,13 @@
         ]
       },
       {
-        "$id": 86
+        "$id": 85
       },
       {
-        "$id": 89
+        "$id": 88
       },
       {
-        "$id": 93,
+        "$id": 92,
         "Name": "Quad",
         "AssetPath": "",
         "Identifier": "a358cd91-9de4-4e27-8b64-d5792403c180",
@@ -1737,7 +1729,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 94,
+          "$id": 93,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1758,7 +1750,7 @@
         },
         "Components": [
           {
-            "$id": 95,
+            "$id": 94,
             "$type": "SimpleQuad, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
@@ -1777,7 +1769,7 @@
         ]
       },
       {
-        "$id": 96,
+        "$id": 95,
         "Name": "Cube",
         "AssetPath": "",
         "Identifier": "633e2afd-b219-4996-be7b-30e4cac45b65",
@@ -1788,7 +1780,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 97,
+          "$id": 96,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1809,7 +1801,7 @@
         },
         "Components": [
           {
-            "$id": 98,
+            "$id": 97,
             "$type": "Cube, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
@@ -1828,7 +1820,7 @@
         ]
       },
       {
-        "$id": 99,
+        "$id": 98,
         "Name": "Chunk",
         "AssetPath": "",
         "Identifier": "e36bc7c9-62f6-4c31-a173-0cbed6ec7024",
@@ -1839,7 +1831,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 100,
+          "$id": 99,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1860,7 +1852,7 @@
         },
         "Components": [
           {
-            "$id": 101,
+            "$id": 100,
             "$type": "Chunk, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
@@ -1879,7 +1871,7 @@
         ]
       },
       {
-        "$id": 102,
+        "$id": 101,
         "Name": "OptimizedChunk",
         "AssetPath": "",
         "Identifier": "5650ad55-9efb-44d1-b961-0bbd875c787c",
@@ -1890,7 +1882,7 @@
         "LayerIndex": 0,
         "HideFlags": 0,
         "Transform": {
-          "$id": 103,
+          "$id": 102,
           "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
           "_localPosition": {
             "X": 0F,
@@ -1911,7 +1903,7 @@
         },
         "Components": [
           {
-            "$id": 104,
+            "$id": 103,
             "$type": "Voxels.OptimizedChunk, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
@@ -1932,7 +1924,7 @@
     ]
   },
   "_goIdentifiers": {
-    "$id": 105,
+    "$id": 104,
     "array": [
       "ef8c3d12-93f2-4f2c-9232-1bc52ae9757d",
       "59368f36-a807-4d04-a31f-ac32f0637903",
@@ -1960,7 +1952,7 @@
     ]
   },
   "_compIdentifiers": {
-    "$id": 106,
+    "$id": 105,
     "array": [
       "bbc0ed1c-c7f6-4845-b774-81a1cdff3ed7",
       "a773bc5a-4a93-4924-b429-017cf8d57dcd",
@@ -1998,7 +1990,7 @@
       "86ee1c21-ebc2-49ee-9791-bdabd4ba302f",
       "3f22adf3-7393-4f6b-9515-ef26558bdd43",
       "e63a82cc-3eca-427e-8545-b1b054b9b99b",
-      "815c8a2c-a266-47ee-a255-ce4efe609970",
+      "2f5a5c37-c90e-48ef-a073-9861cee1b9b3",
       "a1d3b5c1-f002-4cfe-8f51-7518c35fce5a",
       "421400ea-4e21-4643-bdc7-27119cb275e8",
       "e307c513-63eb-4bd2-82f3-f69d30599f7e",
@@ -2007,7 +1999,7 @@
     ]
   },
   "_compIdOffsets": {
-    "$id": 107,
+    "$id": 106,
     "array": [
       0,
       1,
@@ -2095,40 +2087,40 @@
     }
   },
   "BakedLighting": {
-    "$id": 108,
+    "$id": 107,
     "Lightmaps": {
-      "$id": 109,
+      "$id": 108,
       "$values": [
 
       ]
     },
     "ProbePositions": {
-      "$id": 110,
+      "$id": 109,
       "array": [
 
       ]
     },
     "ProbeSH": {
-      "$id": 111,
+      "$id": 110,
       "array": [
 
       ]
     },
     "ProbeTetrahedra": {
-      "$id": 112,
+      "$id": 111,
       "array": [
 
       ]
     },
     "ProbeTetNeighbours": {
-      "$id": 113,
+      "$id": 112,
       "array": [
 
       ]
     }
   },
   "LightmapBake": {
-    "$id": 114,
+    "$id": 113,
     "AtlasSize": 1024,
     "TexelsPerUnit": 20F,
     "DilatePixels": 2,

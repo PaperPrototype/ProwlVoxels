@@ -21,6 +21,9 @@ public class World : MonoBehaviour
     private Float3 initialPlayerPos;
     private bool firstRunIsLoaded = false;
 
+    private float timingLogTimer = 0f;
+    private const float TimingLogInterval = 1f;
+
     public override void Start()
     {
         initialPlayerPos = player.Position;
@@ -28,6 +31,8 @@ public class World : MonoBehaviour
 
     public override void Update()
     {
+        LogChunkTimings();
+
         Int2 playerChunk = WorldToChunkPos(player.Position);
 
         for (int x = -RenderDistance; x <= RenderDistance; x++)
@@ -80,6 +85,34 @@ public class World : MonoBehaviour
         {
             Transform.Position = initialPlayerPos;
         }
+    }
+
+    private void LogChunkTimings()
+    {
+        timingLogTimer += Time.DeltaTime;
+        if (timingLogTimer < TimingLogInterval) return;
+        timingLogTimer = 0f;
+
+        if (chunks.Count == 0) return;
+
+        double noiseSum = 0, noiseMin = double.MaxValue, noiseMax = double.MinValue;
+        double meshSum = 0, meshMin = double.MaxValue, meshMax = double.MinValue;
+
+        foreach (var chunk in chunks.Values)
+        {
+            noiseSum += chunk.NoiseTimeMs;
+            noiseMin = Math.Min(noiseMin, chunk.NoiseTimeMs);
+            noiseMax = Math.Max(noiseMax, chunk.NoiseTimeMs);
+
+            meshSum += chunk.MeshTimeMs;
+            meshMin = Math.Min(meshMin, chunk.MeshTimeMs);
+            meshMax = Math.Max(meshMax, chunk.MeshTimeMs);
+        }
+
+        double noiseAvg = noiseSum / chunks.Count;
+        double meshAvg = meshSum / chunks.Count;
+
+        Debug.Log($"Chunk timings ({chunks.Count} chunks) - Noise avg/min/max: {noiseAvg:F2}/{noiseMin:F2}/{noiseMax:F2} ms | Mesh avg/min/max: {meshAvg:F2}/{meshMin:F2}/{meshMax:F2} ms");
     }
 
     private bool IsInsideRenderDistance(Int2 chunkPos, Int2 playerChunk)

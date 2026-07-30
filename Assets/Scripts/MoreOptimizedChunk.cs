@@ -2,6 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Stopwatch = System.Diagnostics.Stopwatch;
 using Jitter2.Collision.Shapes;
 using Jitter2.LinearMath;
 using Prowl.Editor.Core;
@@ -30,6 +31,9 @@ public class MoreOptimizedChunk : MonoBehaviour
     private Float3 center => position + halfExtents;
 
     private bool isGenerated = false;
+
+    public double NoiseTimeMs { get; private set; }
+    public double MeshTimeMs { get; private set; }
 
     private byte[,,] voxels = new byte[ChunkSize, ChunkHeight, ChunkSize];
 
@@ -284,8 +288,15 @@ public class MoreOptimizedChunk : MonoBehaviour
     {
         if (isGenerated) return;
 
+        var stopwatch = Stopwatch.StartNew();
         CalcNoise();
+        stopwatch.Stop();
+        NoiseTimeMs = stopwatch.Elapsed.TotalMilliseconds;
+
+        stopwatch.Restart();
         CalcMesh();
+        stopwatch.Stop();
+        MeshTimeMs = stopwatch.Elapsed.TotalMilliseconds;
 
         isGenerated = true;
     }
