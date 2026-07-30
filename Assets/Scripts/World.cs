@@ -24,24 +24,19 @@ public class World : MonoBehaviour
     private float timingLogTimer = 0f;
     private const float TimingLogInterval = 1f;
 
-    public JobSystem Jobs { get; private set; } = null!;
-
     public override void Start()
     {
         initialPlayerPos = player.Position;
     }
 
-    public override void OnEnable()
+    public override void OnDispose()
     {
-        base.CreatedInstance();
-        Jobs = new JobSystem();
+        base.OnDispose();
     }
 
-    public override void OnDisable()
+    public override void CreatedInstance()
     {
-        Jobs?.Dispose();
-        Jobs = null!;
-        base.OnDispose();
+        base.CreatedInstance();
     }
 
     public override void Update()

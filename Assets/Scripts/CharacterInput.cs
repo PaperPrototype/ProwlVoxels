@@ -44,7 +44,6 @@ public class CharacterInput : MonoBehaviour
             _velocity.Y = 0f;
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Transform.Position = Transform.Position + Float3.UnitY;
                 _velocity.Y = JumpSpeed;
             }
         }

@@ -388,7 +388,7 @@
             "material": {
               "AssetID": "66eb3779-fb79-4953-93ea-2ab90ef7bd46"
             },
-            "RenderDistance": 2,
+            "RenderDistance": 10,
             "_identifier": "4a62e27b-aa96-4211-a677-92254d01e89e",
             "_enabled": true,
             "_enabledInHierarchy": true,
@@ -1625,7 +1625,7 @@
                 "LookDirection": {
                   "$id": 10
                 },
-                "MoveSpeed": 6F,
+                "MoveSpeed": 15F,
                 "JumpSpeed": 8F,
                 "Gravity": -10F,
                 "_identifier": "2f5a5c37-c90e-48ef-a073-9861cee1b9b3",
