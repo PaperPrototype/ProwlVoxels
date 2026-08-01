@@ -1,0 +1,377 @@
+{
+  "$id": 1,
+  "$type": "Prowl.Runtime.Resources.Scene, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+  "serializeObj": {
+    "$id": 2,
+    "array": [
+      {
+        "$id": 3,
+        "Name": "Camera",
+        "AssetPath": "",
+        "Identifier": "5c9da64b-de6e-4e04-b1bd-5e51b6b2e9e0",
+        "Static": 0B,
+        "Enabled": 1B,
+        "EnabledInHierarchy": 1B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 4,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F,
+            "W": 1F
+          }
+        },
+        "Components": [
+          {
+            "$id": 5,
+            "$type": "Prowl.Runtime.Camera, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "Effects": {
+              "$id": 6,
+              "$values": [
+                {
+                  "$id": 7,
+                  "$type": "Prowl.Runtime.Rendering.TonemapperEffect, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+                  "Type": 3L,
+                  "Contrast": 1.1F,
+                  "Saturation": 1.1F,
+                  "Enabled": true
+                }
+              ]
+            },
+            "ClearFlags": 3L,
+            "ClearColor": {
+              "R": 0F,
+              "G": 0F,
+              "B": 0F,
+              "A": 1F
+            },
+            "CullingMask": {
+              "mask": 4294967295U
+            },
+            "ProjectionMode": 0L,
+            "FieldOfView": 60F,
+            "OrthographicSize": 0.5F,
+            "NearClipPlane": 0.1F,
+            "FarClipPlane": 100F,
+            "Depth": -1,
+            "Pipeline": NULL,
+            "Target": NULL,
+            "HDR": false,
+            "RenderScale": 1F,
+            "_identifier": "669aa4bf-ea46-4bee-88db-6fef2d8f101e",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewCamera"
+          }
+        ],
+        "Children": [
+
+        ]
+      },
+      {
+        "$id": 8,
+        "Name": "Directional Light",
+        "AssetPath": "",
+        "Identifier": "3cd7f640-1385-4c89-81cd-b2af2c19656e",
+        "Static": 0B,
+        "Enabled": 1B,
+        "EnabledInHierarchy": 1B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 9,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": -0.40821797F,
+            "Y": 0.23456974F,
+            "Z": 0.10938167F,
+            "W": 0.8754262F
+          }
+        },
+        "Components": [
+          {
+            "$id": 10,
+            "$type": "Prowl.Runtime.DirectionalLight, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "ShadowResolution": 2048L,
+            "Cascades": 2L,
+            "ShadowDistance": 70F,
+            "Color": {
+              "R": 1F,
+              "G": 1F,
+              "B": 1F,
+              "A": 1F
+            },
+            "Intensity": 1F,
+            "ShadowStrength": 1F,
+            "ShadowBias": 0.001F,
+            "ShadowNormalBias": 0F,
+            "CastShadows": true,
+            "ShadowQuality": 1L,
+            "BakeMode": 0L,
+            "_identifier": "f3f91af2-5879-48c6-b37b-dfc37f86d521",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewDirectionalLight"
+          }
+        ],
+        "Children": [
+
+        ]
+      },
+      {
+        "$id": 11,
+        "Name": "Terrain",
+        "AssetPath": "",
+        "Identifier": "194507c8-3763-4f14-b492-9609c7cdc8e9",
+        "Static": 0B,
+        "Enabled": 1B,
+        "EnabledInHierarchy": 1B,
+        "TagIndex": 0,
+        "LayerIndex": 0,
+        "HideFlags": 0,
+        "Transform": {
+          "$id": 12,
+          "$type": "Prowl.Vector.Transform, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+          "_localPosition": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F
+          },
+          "_localScale": {
+            "X": 1F,
+            "Y": 1F,
+            "Z": 1F
+          },
+          "_localRotation": {
+            "X": 0F,
+            "Y": 0F,
+            "Z": 0F,
+            "W": 1F
+          }
+        },
+        "Components": [
+          {
+            "$id": 13,
+            "$type": "Prowl.Runtime.Terrain.TerrainComponent, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "Data": {
+              "AssetID": "39e4add9-c467-46c9-a0df-a1dd029579f3"
+            },
+            "Material": {
+              "AssetID": "8fd62fda-e8e7-5259-bb59-ed06fc1b245d"
+            },
+            "MaxLODLevel": 4,
+            "MeshResolution": 32,
+            "LODQuality": 1F,
+            "GrassMaterial": {
+              "AssetID": "00000000-0000-0000-0000-000000000000"
+            },
+            "GrassDistance": 150F,
+            "GrassFadeStart": 0.6F,
+            "GrassDensityMultiplier": 1F,
+            "TreeDistance": 500F,
+            "_identifier": "247e7141-f4c5-4041-9262-6d7a86119dea",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewTerrainComponent"
+          },
+          {
+            "$id": 14,
+            "$type": "Prowl.Runtime.TerrainCollider, Prowl.Runtime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "_identifier": "fe2e2a3a-3ffe-4025-9856-b1f6eb279e4e",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewTerrainCollider"
+          },
+          {
+            "$id": 15,
+            "$type": "NoiseMapTerrain, VoxelPlanets.Game, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+            "terrainComponent": {
+              "$id": 13
+            },
+            "_identifier": "e33610d1-7b40-474c-906c-6eb978d62382",
+            "_enabled": true,
+            "_enabledInHierarchy": true,
+            "HideFlags": 0L,
+            "AssetPath": "",
+            "AssetID": "00000000-0000-0000-0000-000000000000",
+            "Name": "NewNoiseMapTerrain"
+          }
+        ],
+        "Children": [
+
+        ]
+      }
+    ]
+  },
+  "_goIdentifiers": {
+    "$id": 16,
+    "array": [
+      "5c9da64b-de6e-4e04-b1bd-5e51b6b2e9e0",
+      "3cd7f640-1385-4c89-81cd-b2af2c19656e",
+      "194507c8-3763-4f14-b492-9609c7cdc8e9"
+    ]
+  },
+  "_compIdentifiers": {
+    "$id": 17,
+    "array": [
+      "669aa4bf-ea46-4bee-88db-6fef2d8f101e",
+      "f3f91af2-5879-48c6-b37b-dfc37f86d521",
+      "247e7141-f4c5-4041-9262-6d7a86119dea",
+      "fe2e2a3a-3ffe-4025-9856-b1f6eb279e4e",
+      "e33610d1-7b40-474c-906c-6eb978d62382"
+    ]
+  },
+  "_compIdOffsets": {
+    "$id": 18,
+    "array": [
+      0,
+      1,
+      2,
+      5
+    ]
+  },
+  "Fog": {
+    "Mode": 3L,
+    "Color": {
+      "R": 0.5F,
+      "G": 0.5F,
+      "B": 0.5F,
+      "A": 1F
+    },
+    "Start": 20F,
+    "End": 100F,
+    "Density": 0.01F
+  },
+  "Ambient": {
+    "Mode": 0L,
+    "Strength": 1F,
+    "Color": {
+      "X": 0.43F,
+      "Y": 0.55F,
+      "Z": 0.65F,
+      "W": 1F
+    },
+    "SkyColor": {
+      "X": 0.3F,
+      "Y": 0.3F,
+      "Z": 0.4F,
+      "W": 1F
+    },
+    "GroundColor": {
+      "X": 0.2F,
+      "Y": 0.2F,
+      "Z": 0.2F,
+      "W": 1F
+    }
+  },
+  "Skybox": {
+    "Mode": 0L,
+    "SolidColor": {
+      "R": 0.2F,
+      "G": 0.3F,
+      "B": 0.5F,
+      "A": 1F
+    },
+    "GradientTop": {
+      "R": 0.4F,
+      "G": 0.6F,
+      "B": 0.9F,
+      "A": 1F
+    },
+    "GradientBottom": {
+      "R": 0.8F,
+      "G": 0.8F,
+      "B": 0.7F,
+      "A": 1F
+    },
+    "GradientExponent": 1F,
+    "CustomMaterial": {
+      "AssetID": "00000000-0000-0000-0000-000000000000"
+    }
+  },
+  "BakedLighting": {
+    "$id": 19,
+    "Lightmaps": {
+      "$id": 20,
+      "$values": [
+
+      ]
+    },
+    "ProbePositions": {
+      "$id": 21,
+      "array": [
+
+      ]
+    },
+    "ProbeSH": {
+      "$id": 22,
+      "array": [
+
+      ]
+    },
+    "ProbeTetrahedra": {
+      "$id": 23,
+      "array": [
+
+      ]
+    },
+    "ProbeTetNeighbours": {
+      "$id": 23
+    }
+  },
+  "LightmapBake": {
+    "$id": 24,
+    "AtlasSize": 1024,
+    "TexelsPerUnit": 20F,
+    "DilatePixels": 2,
+    "Bounces": 2,
+    "Samples": 64,
+    "ProbeSamples": 256,
+    "DoBackfaceCull": false,
+    "RussianRoulette": 0F,
+    "Denoise": false,
+    "DenoiseRadius": 5,
+    "BakeSkyLighting": false,
+    "IgnoreAlbedo": false
+  },
+  "AssetPath": "",
+  "AssetID": "00000000-0000-0000-0000-000000000000",
+  "Name": "NoiseTerrain"
+}
