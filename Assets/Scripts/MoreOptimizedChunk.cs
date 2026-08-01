@@ -39,7 +39,6 @@ public class MoreOptimizedChunk : MonoBehaviour
 
     private Mesh mesh = new Mesh { IndexFormat = IndexFormat.UInt32 };
 
-
     public void Initialize(World world, Float3 _position, AssetRef<Material> _material)
     {
         material = _material;
@@ -54,26 +53,6 @@ public class MoreOptimizedChunk : MonoBehaviour
 
         meshRenderer = AddComponent<MeshRenderer>();
         meshRenderer.Material = material;
-    }
-
-    public void RaycastUpdateBlock(Ray ray, byte voxel)
-    {
-        if (mesh.Raycast(ray, out var distance, out var normal))
-        {   
-            var pos = ray.Origin + Float3.Normalize(ray.Direction) * distance;
-            var index = Maths.FloorToInt(pos - (normal * 0.5f));
-            if (IsInsideBounds(index.X, index.Y, index.Z)) 
-            {
-                Debug.Log("IsInside bounds");
-                voxels[index.X, index.Y, index.Z] = voxel;
-                CalcMesh();
-                boxelCollider?.Set(colliderShapes.ToArray());
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException($"Voxel position ({index.X}, {index.Y}, {index.Z}) is outside chunk bounds.");
-            }
-        }
     }
 
     public void UpdateBlock(int x, int y, int z, byte voxel)
@@ -133,58 +112,22 @@ public class MoreOptimizedChunk : MonoBehaviour
         var noise = new FastNoiseLite();
         noise.SetNoiseType(FastNoiseLite.NoiseType.OpenSimplex2);
 
-        bool IsNoiseAir(int x, int y, int z)
-        {
-            float frequency = 1.1f;
-            var offset = (new Float3(x, y, z) + position) * frequency;
-            
-            float secondaryFrequencyFrequency = 0.1f;
-            float secondaryFrequency = (float)((noise.GetNoise(offset.X * secondaryFrequencyFrequency, offset.Z * secondaryFrequencyFrequency) + 1) * 0.5f); // 0 to 1
-            secondaryFrequency = (secondaryFrequency + 0.5f) * 2f; // 0.5 to 1.5
-            offset *= secondaryFrequency;
-
-            // bottom terrain
-            var noise01 = (noise.GetNoise(offset.X + 1000, offset.Z) + 1) * 0.5; 
-            var noise01_idk = ((noise.GetNoise((offset.X - 1000) * 0.01f, (offset.Z) * 0.1f) + 1) * 0.5) * 2f; 
-            var terrainMaxHeight = 16;
-            var terrainHeight = noise01 * noise01_idk * terrainMaxHeight;
-            if (y < terrainHeight) return false;
-            // return y > terrainHeight;
-
-            // caves
-            var caves = (noise.GetNoise(offset.X, offset.Y * 0.001f, offset.Z) + 1) * 0.5; // 0 to 1
-            if (caves < 0.5f) return true;
-    
-            // floating islands
-            var noise01FloatingIslandsTop = (noise.GetNoise(offset.X + 1000, offset.Z) + 1) * 0.5; // 0 to 1 * 16
-            var noise01FloatingIslandsBottom = (noise.GetNoise(offset.X - 82348, offset.Z + 100) + 1) * 0.5; // 0 to 1
-            var floatingIslandsHeight = 50;
-            var floatIslandsDepth = 25;
-            var bottomHeight = (noise01FloatingIslandsTop * floatIslandsDepth) + floatingIslandsHeight;
-            var topHeight = (noise01FloatingIslandsBottom * floatIslandsDepth) + floatingIslandsHeight;
-            if (offset.Y > bottomHeight && offset.Y < topHeight)
-            {
-                return false; // dirt
-            }
-
-            return true;
-        }
-
 
         for (int x = 0; x < ChunkSize; x++)
-        for (int y = 0; y < ChunkHeight; y++)
         for (int z = 0; z < ChunkSize; z++)
         {
-            if (IsNoiseAir(x, y, z))
-            {
-                voxels[x, y, z] = 0; // Air
-            }
-            else
-            {
-                voxels[x, y, z] = 1; // Dirt
+            var xzPos = new Float2(x, z) + position.XZ;
+
+            float frequency = 1.1f;
+            float height01 = (noise.GetNoise(xzPos.X * frequency, xzPos.Y * frequency) + 1f) * 0.5f;
+            float terrainHeight = height01 * 32;
+
+            for (int y = 0; y < ChunkHeight; y++) {
+                float yPos = position.Y + y;
+
+                if (yPos < terrainHeight) voxels[x, y, z] = 1; // Dirt
             }
         }
-
     }
 
     private void CalcMesh()
